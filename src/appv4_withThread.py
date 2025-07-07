@@ -17,7 +17,7 @@ from langchain_core.messages import (
 from langchain_core.tools import Tool
 
 # LangGraph
-from langgraph.graph import StateGraph, START
+from langgraph.graph import StateGraph, START,END
 from langgraph.prebuilt import ToolNode
 from langchain_core.runnables import RunnableLambda
 from utils.tools import GetAPIEndpoint, get_weather, get_wind
@@ -31,17 +31,7 @@ class State(BaseModel):
     messages: List[BaseMessage] = []
     previous_messages: Optional[List[BaseMessage]] = None
 
-# def GetAPIEndpoint(x: str) -> str:
-#     return f"https://api.example.com/{x}"
 
-# def get_weather(location: str) -> str:
-#     return f"The weather  is sunny 25°C."
-
-# def get_wind(location: str) -> str:
-#     return f"The wind speed in {location} is 10 km/h."
-
-# =====================================================
-#  Tool objects
 tools = [
     Tool.from_function(
         func=GetAPIEndpoint,
@@ -116,6 +106,7 @@ def serialize_for_endpoint(messages: List[BaseMessage]) -> List[dict]:
     print("\n[DEBUG] Serializing messages in Serialize endpoint:")
     print(messages)
     for m in messages:
+        print("\n Looping on messages : ", m)
         if isinstance(m, HumanMessage) or (isinstance(m,BaseMessage) and m.type=="human"):
             role = "user"
             content = m.content
@@ -125,9 +116,13 @@ def serialize_for_endpoint(messages: List[BaseMessage]) -> List[dict]:
         elif isinstance(m, SystemMessage)  or (isinstance(m,BaseMessage) and m.type=="system"):
             role = "system"
             content = m.content
-        elif isinstance(m, ToolMessage):
-            role = "tool"
-            content = f"[Tool Result: {m.name}] {m.content}"
+        elif isinstance(m, ToolMessage) or (isinstance(m,BaseMessage) and m.type=="tool"):
+            role = "tool_response"
+            content = json.dumps({
+                    "tool_call_id": m.tool_call_id,
+                    "name": m.name,
+                    "content": m.content
+                })
         else:
             raise ValueError(f"Unsupported message type: {type(m)}")
         result.append({"role": role, "content": content})
@@ -223,33 +218,34 @@ def agent_node(state: State) -> State:
 
 # =====================================================
 # User Input Node
-def user_input_node(state: State) -> State:
-    print("\n========== Conversation So Far ==========")
-    for m in state.messages:
-        if isinstance(m, SystemMessage):
-            continue
-        if isinstance(m, HumanMessage):
-            print(f">> User: {m.content}")
-        elif isinstance(m, AIMessage):
-            
-            if m.content:
-                print(f"**Assistant: {m.content}")
-            if "tool_calls" in m.additional_kwargs:
-                for call in m.additional_kwargs["tool_calls"]:
-                    name = call["function"]["name"]
-                    args = call["function"]["arguments"]
-                    print(f">> Assistant (function call): {name}({args})")
-    print("=========================================")
+# def user_input_node(state: State) -> State:
+#     print("\n========== Conversation So Far ==========")
+#     for m in state.messages:
+#         if isinstance(m, SystemMessage):
+#             continue
+#         if isinstance(m, HumanMessage):
+#             print(f">> User: {m.content}")
+#         elif isinstance(m, AIMessage):
+#             print(f">> Assistant: {m}")
+#             if m.content:
+#                 print(f"**Assistant: {m.content}")
+#             if "tool_calls" in m.additional_kwargs:
+#                 for call in m.additional_kwargs["tool_calls"]:
+#                     name = call["function"]["name"]
+#                     args = call["function"]["arguments"]
+#                     print(f">> Assistant (function call): {name}({args})")
+#     print("=========================================")
 
-    user_text = input("\nYour message (or 'exit'): ").strip()
-    if user_text.lower() == "exit":
-        print("\n[Conversation ended by user]")
-        exit(0)
+#     user_text = input("\nYour message (or 'exit'): ").strip()
+#     if user_text.lower() == "exit":
+#         print("\n[Conversation ended by user]")
+#         exit(0)
 
-    return State(messages=state.messages + [HumanMessage(content=user_text)])
+#     return State(messages=state.messages + [HumanMessage(content=user_text)])
 
 def tool_output_node(state: State) -> State:
-    print("^^"*50, "\n[DEBUG] TOOL OUTPUT NODE")
+    print("^^"*50, "\n[DEBUG] TOOL OUTPUT NODE\n")
+    print(state,"\n")
     return State(messages=state.previous_messages + state.messages)
 
 # =====================================================
@@ -263,39 +259,49 @@ def tool_condition(state: State) -> str:
     if isinstance(last, AIMessage) and last.additional_kwargs.get("tool_calls"):
         print("tools")
         return "tools"
-    print("user_input")
-    return "user_input"
+    print("end")
+    return "END"
 
 # =====================================================
 # Buiild LangGraph
 graph = StateGraph(State)
 graph.add_node("agent", RunnableLambda(agent_node))
 graph.add_node("tools", tool_node)
-graph.add_node("user_input", RunnableLambda(user_input_node))
+#graph.add_node("user_input", RunnableLambda(user_input_node))
 graph.add_node("tool_output", RunnableLambda(tool_output_node))
 
 graph.set_entry_point("agent")
 
 graph.add_conditional_edges(
     "agent",
-    tool_condition,
-    {
-        "tools": "tools",
-        "user_input": "user_input"
-    }
+    tool_condition
 )
 graph.add_edge("tools", "tool_output")
 graph.add_edge("tool_output", "agent")
-
-graph.add_edge("user_input", "agent")
+graph.add_edge("agent", END)
 
 app = graph.compile()
 
 # =====================================================
 
 initial_state = State(messages=[
-    SystemMessage(content="You are helpful assistant"),
-    HumanMessage(content="Give weather of delhi")
+    SystemMessage(content="You are helpful assistant."),
+    HumanMessage(content="give me endpoint of SAP")
 ])
 
-app.invoke(initial_state)
+SystemMsg=SystemMessage(content="You are helpful assistant.")
+
+def invoke(text:str,context: Optional[List] = None):
+    print("Text -",text)
+    if context is not None:
+        print("context - ",context)
+        print("Context main message :",context["messages"])
+        print("Context Prev message :",context["previous_messages"])
+        #return "Hello from AI"
+    if context is None:
+        context = []
+        l= app.invoke(State(messages=[SystemMsg,HumanMessage(content=text)]))
+    else:
+        l= app.invoke(State(messages=context["messages"]+[HumanMessage(content=text)],previous_messages=context["previous_messages"]))
+    #print(l["messages"][-1].content)
+    return l

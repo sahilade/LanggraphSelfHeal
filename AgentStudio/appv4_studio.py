@@ -17,10 +17,9 @@ from langchain_core.messages import (
 from langchain_core.tools import Tool
 
 # LangGraph
-from langgraph.graph import StateGraph, START
+from langgraph.graph import StateGraph, START,END
 from langgraph.prebuilt import ToolNode
 from langchain_core.runnables import RunnableLambda
-from utils.tools import GetAPIEndpoint, get_weather, get_wind
 
 
 load_dotenv(override=True)
@@ -31,14 +30,14 @@ class State(BaseModel):
     messages: List[BaseMessage] = []
     previous_messages: Optional[List[BaseMessage]] = None
 
-# def GetAPIEndpoint(x: str) -> str:
-#     return f"https://api.example.com/{x}"
+def GetAPIEndpoint(x: str) -> str:
+    return f"https://api.example.com/{x}"
 
-# def get_weather(location: str) -> str:
-#     return f"The weather  is sunny 25°C."
+def get_weather(location: str) -> str:
+    return f"The weather  is sunny 25°C."
 
-# def get_wind(location: str) -> str:
-#     return f"The wind speed in {location} is 10 km/h."
+def get_wind(location: str) -> str:
+    return f"The wind speed in {location} is 10 km/h."
 
 # =====================================================
 #  Tool objects
@@ -119,10 +118,10 @@ def serialize_for_endpoint(messages: List[BaseMessage]) -> List[dict]:
         if isinstance(m, HumanMessage) or (isinstance(m,BaseMessage) and m.type=="human"):
             role = "user"
             content = m.content
-        elif isinstance(m, AIMessage)  or (isinstance(m,BaseMessage) and m.type=="ai"):
+        elif isinstance(m, AIMessage):
             role = "assistant"
             content = m.content
-        elif isinstance(m, SystemMessage)  or (isinstance(m,BaseMessage) and m.type=="system"):
+        elif isinstance(m, SystemMessage):
             role = "system"
             content = m.content
         elif isinstance(m, ToolMessage):
@@ -215,41 +214,45 @@ internal_llm = InternalLLM(
 
 # =====================================================
 # Agent Node
+SystemMsg=SystemMessage(content="You are helpful assistant")
+
 def agent_node(state: State) -> State:
     print("^"*100, "\n[DEBUG] AGENT NODE")
     print(state.messages)
     response = internal_llm.invoke(state.messages, functions=tools_schemas )
     return State(messages=state.messages + [response], previous_messages=state.messages)
 
+
 # =====================================================
-# User Input Node
-def user_input_node(state: State) -> State:
-    print("\n========== Conversation So Far ==========")
-    for m in state.messages:
-        if isinstance(m, SystemMessage):
-            continue
-        if isinstance(m, HumanMessage):
-            print(f">> User: {m.content}")
-        elif isinstance(m, AIMessage):
-            
-            if m.content:
-                print(f"**Assistant: {m.content}")
-            if "tool_calls" in m.additional_kwargs:
-                for call in m.additional_kwargs["tool_calls"]:
-                    name = call["function"]["name"]
-                    args = call["function"]["arguments"]
-                    print(f">> Assistant (function call): {name}({args})")
-    print("=========================================")
+# # User Input Node
+# def user_input_node(state: State) -> State:
+#     print("\n========== Conversation So Far ==========")
+#     for m in state.messages:
+#         if isinstance(m, SystemMessage):
+#             continue
+#         if isinstance(m, HumanMessage):
+#             print(f">> User: {m.content}")
+#         elif isinstance(m, AIMessage):
+#             print(f">> Assistant: {m}")
+#             if m.content:
+#                 print(f"**Assistant: {m.content}")
+#             if "tool_calls" in m.additional_kwargs:
+#                 for call in m.additional_kwargs["tool_calls"]:
+#                     name = call["function"]["name"]
+#                     args = call["function"]["arguments"]
+#                     print(f">> Assistant (function call): {name}({args})")
+#     print("=========================================")
 
-    user_text = input("\nYour message (or 'exit'): ").strip()
-    if user_text.lower() == "exit":
-        print("\n[Conversation ended by user]")
-        exit(0)
+#     user_text = input("\nYour message (or 'exit'): ").strip()
+#     if user_text.lower() == "exit":
+#         print("\n[Conversation ended by user]")
+#         exit(0)
 
-    return State(messages=state.messages + [HumanMessage(content=user_text)])
+#     return State(messages=state.messages + [HumanMessage(content=user_text)])
 
 def tool_output_node(state: State) -> State:
     print("^^"*50, "\n[DEBUG] TOOL OUTPUT NODE")
+    print("=-->",state)
     return State(messages=state.previous_messages + state.messages)
 
 # =====================================================
@@ -264,14 +267,14 @@ def tool_condition(state: State) -> str:
         print("tools")
         return "tools"
     print("user_input")
-    return "user_input"
+    return "end"
 
 # =====================================================
 # Buiild LangGraph
 graph = StateGraph(State)
 graph.add_node("agent", RunnableLambda(agent_node))
 graph.add_node("tools", tool_node)
-graph.add_node("user_input", RunnableLambda(user_input_node))
+#graph.add_node("user_input", RunnableLambda(user_input_node))
 graph.add_node("tool_output", RunnableLambda(tool_output_node))
 
 graph.set_entry_point("agent")
@@ -281,21 +284,21 @@ graph.add_conditional_edges(
     tool_condition,
     {
         "tools": "tools",
-        "user_input": "user_input"
+        "end": END
     }
 )
 graph.add_edge("tools", "tool_output")
 graph.add_edge("tool_output", "agent")
 
-graph.add_edge("user_input", "agent")
+#graph.add_edge("user_input", "agent")
 
 app = graph.compile()
 
-# =====================================================
+# # =====================================================
 
-initial_state = State(messages=[
-    SystemMessage(content="You are helpful assistant"),
-    HumanMessage(content="Give weather of delhi")
-])
+# initial_state = State(messages=[
+#     SystemMessage(content="You are expert in Indian politics and current affairs."),
+#     HumanMessage(content="How are you doing?")
+# ])
 
-app.invoke(initial_state)
+# app.invoke(initial_state)
