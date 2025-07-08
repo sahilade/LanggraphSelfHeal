@@ -20,8 +20,8 @@ from langchain_core.tools import Tool
 from langgraph.graph import StateGraph, START,END
 from langgraph.prebuilt import ToolNode
 from langchain_core.runnables import RunnableLambda
-#from utils.tools import GetAPIEndpoint, get_weather, get_wind
-from utils.tools_thread import GetsAnyDetail,CreateANewRecord_in_SNOW
+from utils.tools import GetAPIEndpoint, get_weather, get_wind
+from utils.tools_thread import GetsAnyDetail,CreateANewRecord_in_SNOW_async
 
 
 load_dotenv(override=True)
@@ -70,22 +70,6 @@ def createAPIParam(Query: str):
         example 7: Query - Give me work notes for incident INC12321. Answer: /sys_journal_field?sysparm_query=element_id=f12ca184735123002728660c4cf6a7ef&element=work_notes
         example 8: Query - Give me additional comments for incident INC12321. Answer: /sys_journal_field?sysparm_query=element_id=f12ca184735123002728660c4cf6a7ef&element=comments
        
-        ServiceNow Query Operators
-        STARTSWITH
-        ENDSWITH
-        LIKE
-        ISEMPTY
-        ISNOTEMPTY
-
-        Comparison Operators
-        =, !=, >,<,>=,<=
-        DateTimeOperator
-        ON
-        BETWEEN - eg:  Between two dates	sys_created_onBETWEEN2025-07-01@2025-07-08
-        RELATIVEGT/RELATIVELT - for relative to now - Example - sys_updated_onRELATIVEGT@hour@ago@1
-        
-        and feel free to use more other operators
-
         Answer below query based on above example. 
         Filter should preceed with "/"
         
@@ -96,7 +80,7 @@ def createAPIParam(Query: str):
     """
 
     #print(FilterPrompt)
-    rslt= internal_llm.invokeNonPersistance(Query=FilterPrompt)
+    rslt= llm_client.invoke(FilterPrompt)
     #print(rslt)
     return rslt
 
@@ -142,10 +126,9 @@ def createEndPointPayload(Query: str):
     """
 
     #print(FilterPrompt)
-    rslt= internal_llm.invokeNonPersistance(Query=FilterPrompt)
-    #print("*******************",rslt.content)
+    rslt= llm_client.invoke(FilterPrompt)
+    print("*******************",rslt.content)
     #return rslt.content["table_name"]+"|"+json.dumps(rslt.content["Payload"])  # Return table name and payload as a string separated by '|'
-    print("\n\n",rslt)
     print("parsing result")
     print(type(rslt.content))
     parsed = json.loads(rslt.content)
@@ -161,43 +144,37 @@ def createEndPointPayload(Query: str):
 
 tools = [
     Tool.from_function(
-        func=GetsAnyDetail,
-        name="GetsAnyDetail",
-        description="Gets required detail from ServiceNow. TO use this get call createAPIParam tool first. Gets custom details from ServiceNow based on the filter created by createAPIParam tool. Args:filter : URL parameter filter to get details from API"
+        func=GetAPIEndpoint,
+        name="GetAPIEndpoint",
+        description="Get API Endpoint based on the job type."
     ),
     Tool.from_function(
-        func=CreateANewRecord_in_SNOW,
-        name="CreateANewRecord_in_SNOW",
-        description="Creates a new record in ServiceNow in required table as per the parameter provided by createEndPointPayload tool"
+        func=get_weather,
+        name="get_weather",
+        description="Get weather for a location."
     ),
     Tool.from_function(
-        func=createAPIParam,
-        name="createAPIParam",
-        description="Create API parameter for getting the details from ServiceNow."
-    ),
-    Tool.from_function(
-        func=createEndPointPayload,
-        name="createEndPointPayload",
-        description="Create API parameter and Payload for posting/creating the records from ServiceNow."
-    ),
-
+        func=get_wind,
+        name="get_wind",
+        description="Get wind speed for a location."
+    )
 ]
 
 tools_schemas = [
     {
         "type": "function",
         "function": {
-            "name": "GetsAnyDetail",
-            "description": "Gets required detail from ServiceNow. TO use this get call createAPIParam tool first. Gets custom details from ServiceNow based on the filter created by createAPIParam tool. Args:filter : URL parameter filter to get details from API",
+            "name": "GetAPIEndpoint",
+            "description": "Get API Endpoint based on the job type.",
             "parameters": {
                 "type": "object",
                 "properties": {
-                    "filter": {
+                    "x": {
                         "type": "string",
-                        "description": "API parameter filter to  get details from API"
+                        "description": "Job Type. Can be sap, salesforce or any other."
                     }
                 },
-                "required": ["filter"],
+                "required": ["x"],
                 "additionalProperties": False
             }
         }
@@ -205,14 +182,14 @@ tools_schemas = [
     {
         "type": "function",
         "function": {
-            "name": "CreateANewRecord_in_SNOW",
-            "description": "Creates a new record in ServiceNow in required table as per the parameter provided by createEndPointPayload tool",
+            "name": "get_weather",
+            "description": "Get weather for a location.",
             "parameters": {
                 "type": "object",
                 "properties": {
-                    "data": {"type": "string", "description": "Contains table name and payload in the format 'table_name|payload' "}
+                    "location": {"type": "string", "description": "City name"}
                 },
-                "required": ["data"],
+                "required": ["location"],
                 "additionalProperties": False
             }
         }
@@ -220,42 +197,26 @@ tools_schemas = [
     {
         "type": "function",
         "function": {
-            "name": "createAPIParam",
-            "description": "Create API parameter for getting the details from ServiceNow.",
+            "name": "get_wind",
+            "description": "Get wind speed for a location.",
             "parameters": {
                 "type": "object",
                 "properties": {
-                    "Query": {"type": "string", "description": "Natural Language Query of the requirement"}
+                    "location": {"type": "string", "description": "City name"}
                 },
-                "required": ["Query"],
-                "additionalProperties": False
-            }
-        }
-    },
-    {
-        "type": "function",
-        "function": {
-            "name": "createEndPointPayload",
-            "description": "This tool is NOT used for any kind of GET Request.Create endpoint and payload for any Create/Insert/Post/PATch/PUT/DElete request apart from Incident and RITM (for which separate tools are created)",
-            "parameters": {
-                "type": "object",
-                "properties": {
-                    "Query": {"type": "string", "description": "Natural Language Query for creating and updating the record"}
-                },
-                "required": ["Query"],
+                "required": ["location"],
                 "additionalProperties": False
             }
         }
     }
-    
 ]
 
 def serialize_for_endpoint(messages: List[BaseMessage]) -> List[dict]:
     result = []
     print("\n[DEBUG] Serializing messages in Serialize endpoint:")
-    print(messages)
+    #print(messages)
     for m in messages:
-        print("for - ", m)
+        print("\n Looping on messages : ", m)
         if isinstance(m, HumanMessage) or (isinstance(m,BaseMessage) and m.type=="human"):
             role = "user"
             content = m.content
@@ -265,14 +226,6 @@ def serialize_for_endpoint(messages: List[BaseMessage]) -> List[dict]:
         elif isinstance(m, SystemMessage)  or (isinstance(m,BaseMessage) and m.type=="system"):
             role = "system"
             content = m.content
-        elif (isinstance(m, ToolMessage) and  m.status=="error") :
-            role = "tool_response"
-            content = json.dumps({
-                    "tool_call_id": m.tool_call_id,
-                    "name": m.name,
-                    "content": m.content
-                })
-            raise Exception(f"Error in Tool: {m}")
         elif isinstance(m, ToolMessage) or (isinstance(m,BaseMessage) and m.type=="tool"):
             role = "tool_response"
             content = json.dumps({
@@ -296,51 +249,11 @@ class InternalLLM:
         self.model_name = model_name
         self.temperature = temperature
 
-    def invokeNonPersistance(self,Query,functions: Optional[List[dict]] = None):
-        print("InvokeNonPer ---------- ", Query)
-        payload = {
-            "prompt": Query,
-            "generation_model": self.model_name,
-            "max_tokens": 100,
-            "temperature": self.temperature,
-            "n": 1,
-            "raw_response": True
-        }
-
-        headers = {
-            "Authorization": f"Bearer {os.getenv('okta_token')}",
-            "team_id": self.team_id,
-            "project_id": self.project_id,
-            "x-pepgenx-apikey": self.api_key,
-            "Content-Type": "application/json"
-        }
-
-        if functions:
-            # Provide schema to the LLM for function calling
-            payload["tools"] = functions
-            payload["tool_choice"] = "auto"
-        # Make the request
-
-        response = requests.post(self.api_url, headers=headers, json=payload)
-        print("RESPONSE NON PERS - ", response.json())
-        choice = response.json()["choices"][0]["message"]
-        content = choice.get("content") or ""
-        #print(f"[DEBUG] Content: {content}")
-        tool_calls = choice.get("tool_calls")
-        #print(f"[DEBUG] Tool calls: {tool_calls}")
-        print("AIMSG===============================")
-        AIMsg=AIMessage(
-            content=content,
-            additional_kwargs={"tool_calls": tool_calls} if tool_calls else {}
-        )
-        #print(AIMsg)
-        return AIMsg
-
     def invoke(self, messages: List[BaseMessage], functions: Optional[List[dict]] = None) -> AIMessage:
         # Serialize LangChain Message objects to plain dict
         print("*"*50 + "\n[DEBUG] Serializing messages for endpoint:")
         serialized_messages = serialize_for_endpoint(messages)
-        print("SERIALIZED MESSAGES", serialized_messages)
+        
         payload = {
             "prompt": json.dumps(serialized_messages),
             "generation_model": self.model_name,
@@ -374,7 +287,7 @@ class InternalLLM:
 
         print("\n===============================")
         print("[DEBUG] LLM Response:")
-        print( response.json())
+        #print( response.json())
         # Build an AIMessage (content and tool_calls both supported)
         
         # return AIMessage(
@@ -409,8 +322,7 @@ internal_llm = InternalLLM(
 # Agent Node
 def agent_node(state: State) -> State:
     #print("^"*100, "\n[DEBUG] AGENT NODE")
-    print("AGENT NODE",state.messages)
-    
+    #print(state.messages)
     response = internal_llm.invoke(state.messages, functions=tools_schemas )
     return State(messages=state.messages + [response], previous_messages=state.messages)
 
@@ -443,7 +355,7 @@ def agent_node(state: State) -> State:
 
 def tool_output_node(state: State) -> State:
     print("^^"*50, "\n[DEBUG] TOOL OUTPUT NODE\n")
-    print(state,"\n")
+    #print(state,"\n")
     return State(messages=state.previous_messages + state.messages)
 
 # =====================================================
