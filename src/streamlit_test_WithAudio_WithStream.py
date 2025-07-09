@@ -6,8 +6,8 @@ import numpy as np
 import os
 from streamlit_webrtc import webrtc_streamer, AudioProcessorBase
 import av
-from appv4_withThread import invoke
-from typing import Optional,Any
+from appv4_withThread_withStream import invoke, stream_invoke
+from typing import Optional, Any
 import wave
 import tempfile
 import whisper
@@ -15,17 +15,19 @@ import soundfile as sf
 from st_audiorec import st_audiorec
 import io
 
-import streamlit as st
-import uuid
-import json
-import os
-from typing import Optional, Any
-
-from appv4_withThread import invoke
-
 # ------------------------- CONFIG -------------------------
 st.set_page_config(page_title="Threaded Chatbot", layout="wide")
 st.title("🧵 Threaded Chat - Integration with SNOW (BETA)")
+
+# ------------------------- HELPERS -------------------------
+def get_bot_response(user_message: str, full_context: Optional[Any] = None):
+    l = invoke(user_message, full_context)
+    return l
+
+def get_bot_response_streaming(user_message: str, full_context: Optional[Any] = None):
+    print("[DEBUG] Usertext:", user_message)
+    print("[DEBUG] full_context:", full_context)
+    return stream_invoke(user_message, full_context)
 
 # ------------------------- LOAD THREADS -------------------------
 if "threads" not in st.session_state:
@@ -99,16 +101,21 @@ if st.session_state["waiting_for_bot_reply"]:
                 break
 
         if user_input:
-            if full_response:
-                bot_reply = invoke(user_input, full_response)
-            else:
-                bot_reply = invoke(user_input)
+            # Stream the response in real-time
+            placeholder = st.empty()
+            partial_text = ""
 
-            # Replace placeholder
+            for chunk in get_bot_response_streaming(user_input, full_response):
+                partial_text += chunk
+                placeholder.markdown(f"**🤖 Bot:** {partial_text}")
+
+            # Replace the placeholder message with the final text
             messages[-1] = {
                 "role": "bot",
-                "content": bot_reply["messages"][-1].content,
-                "full_response": bot_reply
+                "content": partial_text,
+                "full_response": {
+                    "messages": [{"content": partial_text}]
+                }
             }
 
         st.session_state["waiting_for_bot_reply"] = False
@@ -122,16 +129,7 @@ for msg in active_thread["messages"]:
     if role == "user":
         st.markdown(f"**🧑‍💻 You:** {text}")
     else:
-        #st.markdown(f"**🤖 Bot:** {text}")
         st.markdown(f"**🤖 Bot:** {text}")
-
-# ------------------------- HELPER -------------------------
-def get_bot_response(user_message: str, full_context: Optional[Any] = None):
-    print("[DEBUG] Usertext:", user_message)
-    print("[DEBUG] full_context:", full_context)
-    l = invoke(user_message, full_context)
-    print("invoke() full result:", l)
-    return l
 
 # ------------------------- TEXT INPUT -------------------------
 st.markdown("### 💬 Type a message")
@@ -140,36 +138,26 @@ with st.form("chat_input_form", clear_on_submit=True):
     submitted = st.form_submit_button("Send")
 
 if submitted and user_input:
-    # Add user message immediately
     active_thread["messages"].append({"role": "user", "content": user_input})
-    # Add placeholder bot message immediately
     active_thread["messages"].append({"role": "bot", "content": "🤖 Thinking...", "placeholder": True})
-    # Flag to trigger bot call on rerun
     st.session_state["waiting_for_bot_reply"] = True
     st.rerun()
 
-
-
-# --- Audio Input ---
-# --- Audio Input ---
+# ------------------------- AUDIO INPUT -------------------------
 st.markdown("### 🎙️ Or speak a message")
 
-# Get new audio from recorder
 wav_audio_data = st_audiorec()
 
-# --- Initialize state on first load
 if "stored_audio_data" not in st.session_state:
     st.session_state["stored_audio_data"] = None
 
 if "audio_transcribed" not in st.session_state:
     st.session_state["audio_transcribed"] = True
 
-# --- Check if user recorded NEW audio
 if wav_audio_data is not None and wav_audio_data != st.session_state["stored_audio_data"]:
     st.session_state["stored_audio_data"] = wav_audio_data
     st.session_state["audio_transcribed"] = False
 
-# --- Only transcribe if there's new audio and it's not yet transcribed
 if st.session_state["stored_audio_data"] is not None and not st.session_state["audio_transcribed"]:
     st.write("✅ Entered audio processing block")
     st.audio(st.session_state["stored_audio_data"], format="audio/wav")
@@ -198,12 +186,10 @@ if st.session_state["stored_audio_data"] is not None and not st.session_state["a
             transcript = result["text"]
             st.success(f"📝 Transcript: {transcript}")
 
-            # Only if it's new, queue it for LLM
             if st.session_state.get("last_audio_input") != transcript:
                 st.session_state.last_audio_input = transcript
                 st.session_state.audio_input_processed = False
 
-        # ✅ Mark this audio as processed
         st.session_state["audio_transcribed"] = True
 
     except Exception as e:
@@ -212,58 +198,6 @@ if st.session_state["stored_audio_data"] is not None and not st.session_state["a
 audio_input = st.session_state.get("last_audio_input")
 
 if audio_input:
-    print("Transcript - ", audio_input)
     active_thread["messages"].append({"role": "user", "content": audio_input})
-    print("Active Thread ", active_thread)
-
-    full_response = None
-    for msg in reversed(active_thread["messages"]):
-        if "full_response" in msg:
-            full_response = msg["full_response"]
-            break
-
-    if full_response is not None:
-        bot_reply = get_bot_response(audio_input, full_response)
-    else:
-        bot_reply = get_bot_response(audio_input)
-
-    active_thread["messages"].append({
-        "role": "bot",
-        "content": bot_reply["messages"][-1].content,
-        "full_response": bot_reply
-    })
-
-    # ✅ Clear so LLM is not called again on rerun
-    st.session_state.last_audio_input = None
+    st.session_state["waiting_for_bot_reply"] = True
     st.rerun()
-
-
-# if "audio_input_processed" not in st.session_state:
-#     st.session_state.audio_input_processed = False
-
-# audio_input = st.session_state.get("last_audio_input")
-# if audio_input and not st.session_state.audio_input_processed:
-#     print("Transcript - ", audio_input)
-#     active_thread["messages"].append({"role": "user", "content": audio_input})
-#     print("Active Thread ", active_thread)
- 
-#     full_response = None
-
-#     for msg in reversed(active_thread["messages"]):
-#         if "full_response" in msg:
-#             full_response = msg["full_response"]
-#             break
-
-#    # if last_message is not None and last_message["role"] == "bot" and full_response is not None:
-#     if full_response is not None:
-#         bot_reply = get_bot_response(audio_input, full_response)
-#     else:
-#         bot_reply = get_bot_response(audio_input)
-#     active_thread["messages"].append({
-#         "role": "bot",
-#         "content": bot_reply["messages"][-1].content,
-#         "full_response": bot_reply
-#     })
-#     st.session_state.audio_input_processed = True
-#     st.session_state.last_audio_input = None
-#     st.rerun()

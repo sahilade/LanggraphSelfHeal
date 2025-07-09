@@ -1,13 +1,14 @@
 import aiohttp
 import asyncio
 import dotenv,os,json,requests
+from langchain.tools import tool
 
 dotenv.load_dotenv()
 
 usrr=os.getenv("usrr")
 pwdd=os.getenv("pwdd")
 
-
+@tool(return_direct=True)
 def GetsAnyDetail(filter: str):
     """
     TO use this get call createAPIParam tool first. 
@@ -16,6 +17,7 @@ def GetsAnyDetail(filter: str):
     Args:
         filter: URL parameter filter to get details from API
     """
+    print("filter ------",filter)
     # Define headers and URL
     headers = {"Accept": "application/json"}
     api_url = f"https://dev185303.service-now.com/api/now/table{filter}"
@@ -25,7 +27,7 @@ def GetsAnyDetail(filter: str):
 
     # Make the GET request
     response = requests.get(api_url,auth=auth, headers=headers, verify=False)
-
+    print("response from getanydetail =====",response.json())
     if response.status_code == 200:
         data = response.json()
         return data

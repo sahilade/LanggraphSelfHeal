@@ -3,7 +3,7 @@ import json
 import requests
 from typing import List, Optional
 from dotenv import load_dotenv
-
+import httpx
 from pydantic import BaseModel
 
 # LangChain
@@ -399,7 +399,46 @@ class InternalLLM:
         )
         #print(AIMsg)
         return AIMsg
+    def stream_invoke(self, messages: List[BaseMessage], functions: Optional[List[dict]] = None):
+        """
+            Yields partial response chunks from the LLM API as they arrive.
+        """
+        print("[DEBUG] SERIALIZING for stream")
+        serialized_messages = serialize_for_endpoint(messages)
 
+        payload = {
+            "prompt": json.dumps(serialized_messages),
+            "generation_model": self.model_name,
+            "max_tokens": 2000,
+            "temperature": self.temperature,
+            "n": 1,
+            "raw_response": True,
+            "stream": True
+        }
+
+        if functions:
+            payload["tools"] = functions
+            payload["tool_choice"] = "auto"
+
+        headers = {
+            "Authorization": f"Bearer {os.getenv('okta_token')}",
+            "team_id": self.team_id,
+            "project_id": self.project_id,
+            "x-pepgenx-apikey": self.api_key,
+            "Content-Type": "application/json"
+        }
+
+        with httpx.stream("POST", self.api_url, headers=headers, json=payload, timeout=None,verify=False) as r:
+            for line in r.iter_lines():
+                if line and line.strip().startswith('data:'):
+                    data_str = line.strip()[len('data:'):].strip()
+                    try:
+                        data_json = json.loads(data_str)
+                        text_piece = data_json.get('response')
+                        if text_piece is not None:
+                            yield text_piece
+                    except json.JSONDecodeError:
+                        print("[WARN] Bad JSON in stream:", data_str)
 # =====================================================
 # InternalLLM instance
 internal_llm = InternalLLM(
@@ -546,3 +585,12 @@ def invoke(text:str,context: Optional[List] = None):
         l= app.invoke(State(messages=context["messages"]+[HumanMessage(content=text)],previous_messages=context["previous_messages"]))
     #print(l["messages"][-1].content)
     return l
+
+def stream_invoke(text: str, context: Optional[List] = None):
+    if context is None:
+        context = []
+        message_list = [SystemMsg, HumanMessage(content=text)]
+    else:
+        message_list = context["messages"] + [HumanMessage(content=text)]
+    
+    return internal_llm.stream_invoke(message_list, functions=tools_schemas)

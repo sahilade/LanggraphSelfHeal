@@ -3,7 +3,7 @@ import json
 import requests
 from typing import List, Optional
 from dotenv import load_dotenv
-
+import httpx
 from pydantic import BaseModel
 
 # LangChain
@@ -324,7 +324,7 @@ class InternalLLM:
         if functions:
             # Provide schema to the LLM for function calling
             payload["tools"] = functions
-            payload["tool_choice"] = "auto"
+            payload["tool_choice"] = "none"
         # Make the request
 
         response = requests.post(self.api_url, headers=headers, json=payload)
@@ -344,7 +344,7 @@ class InternalLLM:
 
     def invoke(self, messages: List[BaseMessage], functions: Optional[List[dict]] = None) -> AIMessage:
         # Serialize LangChain Message objects to plain dict
-        print("*"*50 + "\n[DEBUG] Serializing messages for endpoint:")
+        print("*"*50 + "\n[DEBUG - STREAM] Serializing messages for endpoint:")
         serialized_messages = serialize_for_endpoint(messages)
         print("SERIALIZED MESSAGES", serialized_messages)
         payload = {
@@ -399,7 +399,73 @@ class InternalLLM:
         )
         #print(AIMsg)
         return AIMsg
+    def stream_invoke(self, messages: List[BaseMessage], functions: Optional[List[dict]] = None):
+        """
+            Yields partial response chunks from the LLM API as they arrive.
+        """
+        print("[DEBUG] SERIALIZING for stream")
+        serialized_messages = serialize_for_endpoint(messages)
 
+        payload = {
+            "prompt": json.dumps(serialized_messages),
+            "generation_model": self.model_name,
+            "max_tokens": 2000,
+            "temperature": self.temperature,
+            "n": 1,
+            "raw_response": True,
+            "stream": True
+        }
+        print(payload)
+        if functions:
+            payload["tools"] = functions
+            payload["tool_choice"] = "none"
+
+        headers = {
+            "Authorization": f"Bearer {os.getenv('okta_token')}",
+            "team_id": self.team_id,
+            "project_id": self.project_id,
+            "x-pepgenx-apikey": self.api_key,
+            "Content-Type": "application/json"
+        }
+        
+
+        with httpx.stream("POST", self.api_url, headers=headers, json=payload, timeout=None,verify=False) as r:
+            # for line in r.iter_lines():
+            #     print(line+"\n")
+            #     if line and line.strip().startswith('data:'):
+            #         data_str = line.strip()[len('data:'):].strip()
+            #         try:
+            #             data_json = json.loads(data_str)
+            #             text_piece = data_json.get('response')
+            #             if text_piece is not None:
+            #                 yield text_piece
+            #         except json.JSONDecodeError:
+            #             print("[WARN] Bad JSON in stream:", data_str)
+            for line in r.iter_lines():
+                if not line:
+                    continue  # skip empty lines
+
+                line = line.strip()
+                print(line + "\n")  # for debugging
+
+                if line.startswith('data:'):
+                    data_str = line[len('data:'):].strip()
+                    if data_str == '[DONE]':
+                        break  # standard end-of-stream marker
+
+                    try:
+                        data_json = json.loads(data_str)
+                        choices = data_json.get('choices', [])
+                        if not choices:
+                            continue
+
+                        delta = choices[0].get('delta', {})
+                        content_piece = delta.get('content')
+                        if content_piece:
+                            yield content_piece
+
+                    except json.JSONDecodeError:
+                        print("[WARN] Bad JSON in stream:", data_str)
 # =====================================================
 # InternalLLM instance
 internal_llm = InternalLLM(
@@ -488,47 +554,13 @@ app = graph.compile()
 
 # =====================================================
 
-initial_state = State(messages=[
-    SystemMessage(content="You are helpful assistant."),
-    HumanMessage(content="give me endpoint of SAP")
-])
+# initial_state = State(messages=[
+#     SystemMessage(content="You are helpful assistant."),
+#     HumanMessage(content="give me endpoint of SAP")
+# ])
 
 
-content_prompt="""
-        You are ServiceNow Agentic AI, an expert assistant for ServiceNow integration and automation. You understand the ServiceNow data model, tables, and APIs, and you can guide users through creating, retrieving, and updating records.
-        You have access to a set of tools. Your job is to decide when to call them, gather all necessary inputs, and confirm with the user before taking final action.
-        
-        General Rules:
-        Carefully understand the user’s query.
-        Break it down into clear, logical actions.
-        If you suspect the request might be invalid or ambiguous, immediately highlight it and ask for clarification.
-        Always verify the table name and payload for correctness.
-        Ask for any required information if it is missing.
-
-        Tool Usage:
-        For GET requests, use the createAPIParam tool to determine the table name.
-        For retrieving details, use the GetsAnyDetail tool.
-        For creating a new record, use the createEndPointPayload tool to get the table name and payload, and then the CreateANewRecord_in_SNOW tool to create it.
-        Always select the appropriate tool based on the user’s intent
-
-        Interaction Guide :
-        Always confirm the final action with the user before executing it. Clearly present the plan and ask: “Do you want me to proceed?”
-        If you make a mistake (e.g., wrong table or payload), apologize and correct yourself.
-        If a tool call fails:
-            Analyze whether the input you provided was correct.
-            If it was incorrect, fix it and try again.
-            If it fails again, inform the user about the issue honestly and suggest next step
-        
-        Behaviour Example:
-        If the user says: “Create an incident,” you should respond:
-        -“Sure! I’ll help you create an Incident. Please provide the following details: Short Description, Description, Caller, and Category (if any).”
-
-        If the user says “Get details from desk_message,” and the table doesn’t exist:
-        -“I couldn’t find a table called desk_message in ServiceNow. Could you confirm the correct table name? Did you mean rest_message perhaps?”
-
-Note - If you error in getting tool output. analyze if the input you provided is correct. Fix it and run it again. If still not working - inform user about the issue.
-        
-"""
+content_prompt=""" you are helpfull agent"""
 SystemMsg=SystemMessage(content=content_prompt)
 
 def invoke(text:str,context: Optional[List] = None):
@@ -546,3 +578,12 @@ def invoke(text:str,context: Optional[List] = None):
         l= app.invoke(State(messages=context["messages"]+[HumanMessage(content=text)],previous_messages=context["previous_messages"]))
     #print(l["messages"][-1].content)
     return l
+
+def stream_invoke(text: str, context: Optional[List] = None):
+    if context is None:
+        context = []
+        message_list = [SystemMsg, HumanMessage(content=text)]
+    else:
+        message_list = context["messages"] + [HumanMessage(content=text)]
+    
+    return internal_llm.stream_invoke(message_list, functions=tools_schemas)

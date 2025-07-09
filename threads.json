@@ -1,1 +1,1654 @@
-{}
+{
+  "48517e77-dbd8-4f32-9f82-f7f9ffe97a61": {
+    "name": "Thread 1",
+    "messages": [
+      {
+        "role": "user",
+        "content": "Give me list of rest messages available in system"
+      },
+      {
+        "role": "bot",
+        "content": "It seems that I couldn't find a table called `sys_rest_message` in ServiceNow. Could you confirm the correct table name? Did you mean `rest_message` perhaps?",
+        "full_response": {
+          "messages": [
+            {
+              "content": "\n        You are ServiceNow Agentic AI, an expert assistant for ServiceNow integration and automation. You understand the ServiceNow data model, tables, and APIs, and you can guide users through creating, retrieving, and updating records.\n        You have access to a set of tools. Your job is to decide when to call them, gather all necessary inputs, and confirm with the user before taking final action.\n        \n        General Rules:\n        Carefully understand the user\u2019s query.\n        Break it down into clear, logical actions.\n        If you suspect the request might be invalid or ambiguous, immediately highlight it and ask for clarification.\n        Always verify the table name and payload for correctness.\n        Ask for any required information if it is missing.\n\n        Tool Usage:\n        For GET requests, use the createAPIParam tool to determine the table name.\n        For retrieving details, use the GetsAnyDetail tool.\n        For creating a new record, use the createEndPointPayload tool to get the table name and payload, and then the CreateANewRecord_in_SNOW tool to create it.\n        Always select the appropriate tool based on the user\u2019s intent\n\n        Interaction Guide :\n        Always confirm the final action with the user before executing it. Clearly present the plan and ask: \u201cDo you want me to proceed?\u201d\n        If you make a mistake (e.g., wrong table or payload), apologize and correct yourself.\n        If a tool call fails:\n            Analyze whether the input you provided was correct.\n            If it was incorrect, fix it and try again.\n            If it fails again, inform the user about the issue honestly and suggest next step\n        \n        Behaviour Example:\n        If the user says: \u201cCreate an incident,\u201d you should respond:\n        -\u201cSure! I\u2019ll help you create an Incident. Please provide the following details: Short Description, Description, Caller, and Category (if any).\u201d\n\n        If the user says \u201cGet details from desk_message,\u201d and the table doesn\u2019t exist:\n        -\u201cI couldn\u2019t find a table called desk_message in ServiceNow. Could you confirm the correct table name? Did you mean rest_message perhaps?\u201d\n\nNote - If you error in getting tool output. analyze if the input you provided is correct. Fix it and run it again. If still not working - inform user about the issue.\n        \n",
+              "additional_kwargs": {},
+              "response_metadata": {},
+              "type": "system",
+              "name": null,
+              "id": null
+            },
+            {
+              "content": "Give me list of rest messages available in system",
+              "additional_kwargs": {},
+              "response_metadata": {},
+              "type": "human",
+              "name": null,
+              "id": null,
+              "example": false
+            },
+            {
+              "content": "content='/ sys_rest_message?sysparm_query=&sysparm_fields=*fields*&sysparm_limit=*limit*' additional_kwargs={} response_metadata={}",
+              "additional_kwargs": {},
+              "response_metadata": {},
+              "type": "tool",
+              "name": "createAPIParam",
+              "id": null,
+              "tool_call_id": "call_nr8frCFHV9pBsNRRgTDD42AI",
+              "artifact": null,
+              "status": "success"
+            },
+            {
+              "content": "Not found.",
+              "additional_kwargs": {},
+              "response_metadata": {},
+              "type": "tool",
+              "name": "GetsAnyDetail",
+              "id": null,
+              "tool_call_id": "call_Y4MfaunMNXClrvFIiYrLZsfY",
+              "artifact": null,
+              "status": "success"
+            },
+            {
+              "content": "It seems that I couldn't find a table called `sys_rest_message` in ServiceNow. Could you confirm the correct table name? Did you mean `rest_message` perhaps?",
+              "additional_kwargs": {},
+              "response_metadata": {},
+              "type": "ai",
+              "name": null,
+              "id": null,
+              "example": false,
+              "tool_calls": [],
+              "invalid_tool_calls": [],
+              "usage_metadata": null
+            }
+          ],
+          "previous_messages": [
+            {
+              "content": "\n        You are ServiceNow Agentic AI, an expert assistant for ServiceNow integration and automation. You understand the ServiceNow data model, tables, and APIs, and you can guide users through creating, retrieving, and updating records.\n        You have access to a set of tools. Your job is to decide when to call them, gather all necessary inputs, and confirm with the user before taking final action.\n        \n        General Rules:\n        Carefully understand the user\u2019s query.\n        Break it down into clear, logical actions.\n        If you suspect the request might be invalid or ambiguous, immediately highlight it and ask for clarification.\n        Always verify the table name and payload for correctness.\n        Ask for any required information if it is missing.\n\n        Tool Usage:\n        For GET requests, use the createAPIParam tool to determine the table name.\n        For retrieving details, use the GetsAnyDetail tool.\n        For creating a new record, use the createEndPointPayload tool to get the table name and payload, and then the CreateANewRecord_in_SNOW tool to create it.\n        Always select the appropriate tool based on the user\u2019s intent\n\n        Interaction Guide :\n        Always confirm the final action with the user before executing it. Clearly present the plan and ask: \u201cDo you want me to proceed?\u201d\n        If you make a mistake (e.g., wrong table or payload), apologize and correct yourself.\n        If a tool call fails:\n            Analyze whether the input you provided was correct.\n            If it was incorrect, fix it and try again.\n            If it fails again, inform the user about the issue honestly and suggest next step\n        \n        Behaviour Example:\n        If the user says: \u201cCreate an incident,\u201d you should respond:\n        -\u201cSure! I\u2019ll help you create an Incident. Please provide the following details: Short Description, Description, Caller, and Category (if any).\u201d\n\n        If the user says \u201cGet details from desk_message,\u201d and the table doesn\u2019t exist:\n        -\u201cI couldn\u2019t find a table called desk_message in ServiceNow. Could you confirm the correct table name? Did you mean rest_message perhaps?\u201d\n\nNote - If you error in getting tool output. analyze if the input you provided is correct. Fix it and run it again. If still not working - inform user about the issue.\n        \n",
+              "additional_kwargs": {},
+              "response_metadata": {},
+              "type": "system",
+              "name": null,
+              "id": null
+            },
+            {
+              "content": "Give me list of rest messages available in system",
+              "additional_kwargs": {},
+              "response_metadata": {},
+              "type": "human",
+              "name": null,
+              "id": null,
+              "example": false
+            },
+            {
+              "content": "content='/ sys_rest_message?sysparm_query=&sysparm_fields=*fields*&sysparm_limit=*limit*' additional_kwargs={} response_metadata={}",
+              "additional_kwargs": {},
+              "response_metadata": {},
+              "type": "tool",
+              "name": "createAPIParam",
+              "id": null,
+              "tool_call_id": "call_nr8frCFHV9pBsNRRgTDD42AI",
+              "artifact": null,
+              "status": "success"
+            },
+            {
+              "content": "Not found.",
+              "additional_kwargs": {},
+              "response_metadata": {},
+              "type": "tool",
+              "name": "GetsAnyDetail",
+              "id": null,
+              "tool_call_id": "call_Y4MfaunMNXClrvFIiYrLZsfY",
+              "artifact": null,
+              "status": "success"
+            }
+          ]
+        }
+      },
+      {
+        "role": "user",
+        "content": "try again"
+      },
+      {
+        "role": "bot",
+        "content": "It appears that I'm still unable to find the `sys_rest_message` table in ServiceNow. Let's clarify the situation:\n\n1. **Check Table Name**: The table `sys_rest_message` does not seem to exist. The table that might contain the information you are looking for could be `rest_message`. \n2. **Query Attempt**: I attempted to retrieve details from the `sys_rest_message` table, but it returned \"Not found\" again.\n\nWould you like me to try",
+        "full_response": {
+          "messages": [
+            {
+              "content": "\n        You are ServiceNow Agentic AI, an expert assistant for ServiceNow integration and automation. You understand the ServiceNow data model, tables, and APIs, and you can guide users through creating, retrieving, and updating records.\n        You have access to a set of tools. Your job is to decide when to call them, gather all necessary inputs, and confirm with the user before taking final action.\n        \n        General Rules:\n        Carefully understand the user\u2019s query.\n        Break it down into clear, logical actions.\n        If you suspect the request might be invalid or ambiguous, immediately highlight it and ask for clarification.\n        Always verify the table name and payload for correctness.\n        Ask for any required information if it is missing.\n\n        Tool Usage:\n        For GET requests, use the createAPIParam tool to determine the table name.\n        For retrieving details, use the GetsAnyDetail tool.\n        For creating a new record, use the createEndPointPayload tool to get the table name and payload, and then the CreateANewRecord_in_SNOW tool to create it.\n        Always select the appropriate tool based on the user\u2019s intent\n\n        Interaction Guide :\n        Always confirm the final action with the user before executing it. Clearly present the plan and ask: \u201cDo you want me to proceed?\u201d\n        If you make a mistake (e.g., wrong table or payload), apologize and correct yourself.\n        If a tool call fails:\n            Analyze whether the input you provided was correct.\n            If it was incorrect, fix it and try again.\n            If it fails again, inform the user about the issue honestly and suggest next step\n        \n        Behaviour Example:\n        If the user says: \u201cCreate an incident,\u201d you should respond:\n        -\u201cSure! I\u2019ll help you create an Incident. Please provide the following details: Short Description, Description, Caller, and Category (if any).\u201d\n\n        If the user says \u201cGet details from desk_message,\u201d and the table doesn\u2019t exist:\n        -\u201cI couldn\u2019t find a table called desk_message in ServiceNow. Could you confirm the correct table name? Did you mean rest_message perhaps?\u201d\n\nNote - If you error in getting tool output. analyze if the input you provided is correct. Fix it and run it again. If still not working - inform user about the issue.\n        \n",
+              "additional_kwargs": {},
+              "response_metadata": {},
+              "type": "system",
+              "name": null,
+              "id": null
+            },
+            {
+              "content": "Give me list of rest messages available in system",
+              "additional_kwargs": {},
+              "response_metadata": {},
+              "type": "human",
+              "name": null,
+              "id": null,
+              "example": false
+            },
+            {
+              "content": "content='/ sys_rest_message?sysparm_query=&sysparm_fields=*fields*&sysparm_limit=*limit*' additional_kwargs={} response_metadata={}",
+              "additional_kwargs": {},
+              "response_metadata": {},
+              "type": "tool",
+              "name": "createAPIParam",
+              "id": null,
+              "tool_call_id": "call_nr8frCFHV9pBsNRRgTDD42AI",
+              "artifact": null,
+              "status": "success"
+            },
+            {
+              "content": "Not found.",
+              "additional_kwargs": {},
+              "response_metadata": {},
+              "type": "tool",
+              "name": "GetsAnyDetail",
+              "id": null,
+              "tool_call_id": "call_Y4MfaunMNXClrvFIiYrLZsfY",
+              "artifact": null,
+              "status": "success"
+            },
+            {
+              "content": "It seems that I couldn't find a table called `sys_rest_message` in ServiceNow. Could you confirm the correct table name? Did you mean `rest_message` perhaps?",
+              "additional_kwargs": {},
+              "response_metadata": {},
+              "type": "ai",
+              "name": null,
+              "id": null,
+              "example": false,
+              "tool_calls": [],
+              "invalid_tool_calls": [],
+              "usage_metadata": null
+            },
+            {
+              "content": "try again",
+              "additional_kwargs": {},
+              "response_metadata": {},
+              "type": "human",
+              "name": null,
+              "id": null,
+              "example": false
+            },
+            {
+              "content": "content='To get details from the `sys_rest_message` table, the query is quite broad. Since no specific filtering criteria was provided, I will create a basic query to retrieve all details from the `sys_rest_message` table.\\n\\nAnswer: \\n```\\n/sys_rest_message?sysparm_query=active=true&sysparm_fields=sys_id,name,endpoint,method&sysparm_limit=100\\n```\\n\\nThis query retrieves active REST messages with specific fields and limits the result to 100 entries. If' additional_kwargs={} response_metadata={}",
+              "additional_kwargs": {},
+              "response_metadata": {},
+              "type": "tool",
+              "name": "createAPIParam",
+              "id": null,
+              "tool_call_id": "call_6mkbQf7ogWvAcg0bPgSZwxjz",
+              "artifact": null,
+              "status": "success"
+            },
+            {
+              "content": "Not found.",
+              "additional_kwargs": {},
+              "response_metadata": {},
+              "type": "tool",
+              "name": "GetsAnyDetail",
+              "id": null,
+              "tool_call_id": "call_ZfXqdJA2DwD6gq5QqsnAby0z",
+              "artifact": null,
+              "status": "success"
+            },
+            {
+              "content": "It appears that I'm still unable to find the `sys_rest_message` table in ServiceNow. Let's clarify the situation:\n\n1. **Check Table Name**: The table `sys_rest_message` does not seem to exist. The table that might contain the information you are looking for could be `rest_message`. \n2. **Query Attempt**: I attempted to retrieve details from the `sys_rest_message` table, but it returned \"Not found\" again.\n\nWould you like me to try",
+              "additional_kwargs": {},
+              "response_metadata": {},
+              "type": "ai",
+              "name": null,
+              "id": null,
+              "example": false,
+              "tool_calls": [],
+              "invalid_tool_calls": [],
+              "usage_metadata": null
+            }
+          ],
+          "previous_messages": [
+            {
+              "content": "\n        You are ServiceNow Agentic AI, an expert assistant for ServiceNow integration and automation. You understand the ServiceNow data model, tables, and APIs, and you can guide users through creating, retrieving, and updating records.\n        You have access to a set of tools. Your job is to decide when to call them, gather all necessary inputs, and confirm with the user before taking final action.\n        \n        General Rules:\n        Carefully understand the user\u2019s query.\n        Break it down into clear, logical actions.\n        If you suspect the request might be invalid or ambiguous, immediately highlight it and ask for clarification.\n        Always verify the table name and payload for correctness.\n        Ask for any required information if it is missing.\n\n        Tool Usage:\n        For GET requests, use the createAPIParam tool to determine the table name.\n        For retrieving details, use the GetsAnyDetail tool.\n        For creating a new record, use the createEndPointPayload tool to get the table name and payload, and then the CreateANewRecord_in_SNOW tool to create it.\n        Always select the appropriate tool based on the user\u2019s intent\n\n        Interaction Guide :\n        Always confirm the final action with the user before executing it. Clearly present the plan and ask: \u201cDo you want me to proceed?\u201d\n        If you make a mistake (e.g., wrong table or payload), apologize and correct yourself.\n        If a tool call fails:\n            Analyze whether the input you provided was correct.\n            If it was incorrect, fix it and try again.\n            If it fails again, inform the user about the issue honestly and suggest next step\n        \n        Behaviour Example:\n        If the user says: \u201cCreate an incident,\u201d you should respond:\n        -\u201cSure! I\u2019ll help you create an Incident. Please provide the following details: Short Description, Description, Caller, and Category (if any).\u201d\n\n        If the user says \u201cGet details from desk_message,\u201d and the table doesn\u2019t exist:\n        -\u201cI couldn\u2019t find a table called desk_message in ServiceNow. Could you confirm the correct table name? Did you mean rest_message perhaps?\u201d\n\nNote - If you error in getting tool output. analyze if the input you provided is correct. Fix it and run it again. If still not working - inform user about the issue.\n        \n",
+              "additional_kwargs": {},
+              "response_metadata": {},
+              "type": "system",
+              "name": null,
+              "id": null
+            },
+            {
+              "content": "Give me list of rest messages available in system",
+              "additional_kwargs": {},
+              "response_metadata": {},
+              "type": "human",
+              "name": null,
+              "id": null,
+              "example": false
+            },
+            {
+              "content": "content='/ sys_rest_message?sysparm_query=&sysparm_fields=*fields*&sysparm_limit=*limit*' additional_kwargs={} response_metadata={}",
+              "additional_kwargs": {},
+              "response_metadata": {},
+              "type": "tool",
+              "name": "createAPIParam",
+              "id": null,
+              "tool_call_id": "call_nr8frCFHV9pBsNRRgTDD42AI",
+              "artifact": null,
+              "status": "success"
+            },
+            {
+              "content": "Not found.",
+              "additional_kwargs": {},
+              "response_metadata": {},
+              "type": "tool",
+              "name": "GetsAnyDetail",
+              "id": null,
+              "tool_call_id": "call_Y4MfaunMNXClrvFIiYrLZsfY",
+              "artifact": null,
+              "status": "success"
+            },
+            {
+              "content": "It seems that I couldn't find a table called `sys_rest_message` in ServiceNow. Could you confirm the correct table name? Did you mean `rest_message` perhaps?",
+              "additional_kwargs": {},
+              "response_metadata": {},
+              "type": "ai",
+              "name": null,
+              "id": null,
+              "example": false,
+              "tool_calls": [],
+              "invalid_tool_calls": [],
+              "usage_metadata": null
+            },
+            {
+              "content": "try again",
+              "additional_kwargs": {},
+              "response_metadata": {},
+              "type": "human",
+              "name": null,
+              "id": null,
+              "example": false
+            },
+            {
+              "content": "content='To get details from the `sys_rest_message` table, the query is quite broad. Since no specific filtering criteria was provided, I will create a basic query to retrieve all details from the `sys_rest_message` table.\\n\\nAnswer: \\n```\\n/sys_rest_message?sysparm_query=active=true&sysparm_fields=sys_id,name,endpoint,method&sysparm_limit=100\\n```\\n\\nThis query retrieves active REST messages with specific fields and limits the result to 100 entries. If' additional_kwargs={} response_metadata={}",
+              "additional_kwargs": {},
+              "response_metadata": {},
+              "type": "tool",
+              "name": "createAPIParam",
+              "id": null,
+              "tool_call_id": "call_6mkbQf7ogWvAcg0bPgSZwxjz",
+              "artifact": null,
+              "status": "success"
+            },
+            {
+              "content": "Not found.",
+              "additional_kwargs": {},
+              "response_metadata": {},
+              "type": "tool",
+              "name": "GetsAnyDetail",
+              "id": null,
+              "tool_call_id": "call_ZfXqdJA2DwD6gq5QqsnAby0z",
+              "artifact": null,
+              "status": "success"
+            }
+          ]
+        }
+      },
+      {
+        "role": "user",
+        "content": "what is the api parameter filter you used?"
+      },
+      {
+        "role": "bot",
+        "content": "The API parameter filter I used to attempt to retrieve details from the `sys_rest_message` table was:\n\n```\n/sys_rest_message?sysparm_query=active=true&sysparm_fields=sys_id,name,endpoint,method&sysparm_limit=100\n```\n\nThis query was designed to retrieve active REST messages, specifically the fields `sys_id`, `name`, `endpoint`, and `method`, while limiting the results to 100 entries.\n\nSince it seems that the `sys_rest_message",
+        "full_response": {
+          "messages": [
+            {
+              "content": "\n        You are ServiceNow Agentic AI, an expert assistant for ServiceNow integration and automation. You understand the ServiceNow data model, tables, and APIs, and you can guide users through creating, retrieving, and updating records.\n        You have access to a set of tools. Your job is to decide when to call them, gather all necessary inputs, and confirm with the user before taking final action.\n        \n        General Rules:\n        Carefully understand the user\u2019s query.\n        Break it down into clear, logical actions.\n        If you suspect the request might be invalid or ambiguous, immediately highlight it and ask for clarification.\n        Always verify the table name and payload for correctness.\n        Ask for any required information if it is missing.\n\n        Tool Usage:\n        For GET requests, use the createAPIParam tool to determine the table name.\n        For retrieving details, use the GetsAnyDetail tool.\n        For creating a new record, use the createEndPointPayload tool to get the table name and payload, and then the CreateANewRecord_in_SNOW tool to create it.\n        Always select the appropriate tool based on the user\u2019s intent\n\n        Interaction Guide :\n        Always confirm the final action with the user before executing it. Clearly present the plan and ask: \u201cDo you want me to proceed?\u201d\n        If you make a mistake (e.g., wrong table or payload), apologize and correct yourself.\n        If a tool call fails:\n            Analyze whether the input you provided was correct.\n            If it was incorrect, fix it and try again.\n            If it fails again, inform the user about the issue honestly and suggest next step\n        \n        Behaviour Example:\n        If the user says: \u201cCreate an incident,\u201d you should respond:\n        -\u201cSure! I\u2019ll help you create an Incident. Please provide the following details: Short Description, Description, Caller, and Category (if any).\u201d\n\n        If the user says \u201cGet details from desk_message,\u201d and the table doesn\u2019t exist:\n        -\u201cI couldn\u2019t find a table called desk_message in ServiceNow. Could you confirm the correct table name? Did you mean rest_message perhaps?\u201d\n\nNote - If you error in getting tool output. analyze if the input you provided is correct. Fix it and run it again. If still not working - inform user about the issue.\n        \n",
+              "additional_kwargs": {},
+              "response_metadata": {},
+              "type": "system",
+              "name": null,
+              "id": null
+            },
+            {
+              "content": "Give me list of rest messages available in system",
+              "additional_kwargs": {},
+              "response_metadata": {},
+              "type": "human",
+              "name": null,
+              "id": null,
+              "example": false
+            },
+            {
+              "content": "content='/ sys_rest_message?sysparm_query=&sysparm_fields=*fields*&sysparm_limit=*limit*' additional_kwargs={} response_metadata={}",
+              "additional_kwargs": {},
+              "response_metadata": {},
+              "type": "tool",
+              "name": "createAPIParam",
+              "id": null,
+              "tool_call_id": "call_nr8frCFHV9pBsNRRgTDD42AI",
+              "artifact": null,
+              "status": "success"
+            },
+            {
+              "content": "Not found.",
+              "additional_kwargs": {},
+              "response_metadata": {},
+              "type": "tool",
+              "name": "GetsAnyDetail",
+              "id": null,
+              "tool_call_id": "call_Y4MfaunMNXClrvFIiYrLZsfY",
+              "artifact": null,
+              "status": "success"
+            },
+            {
+              "content": "It seems that I couldn't find a table called `sys_rest_message` in ServiceNow. Could you confirm the correct table name? Did you mean `rest_message` perhaps?",
+              "additional_kwargs": {},
+              "response_metadata": {},
+              "type": "ai",
+              "name": null,
+              "id": null,
+              "example": false,
+              "tool_calls": [],
+              "invalid_tool_calls": [],
+              "usage_metadata": null
+            },
+            {
+              "content": "try again",
+              "additional_kwargs": {},
+              "response_metadata": {},
+              "type": "human",
+              "name": null,
+              "id": null,
+              "example": false
+            },
+            {
+              "content": "content='To get details from the `sys_rest_message` table, the query is quite broad. Since no specific filtering criteria was provided, I will create a basic query to retrieve all details from the `sys_rest_message` table.\\n\\nAnswer: \\n```\\n/sys_rest_message?sysparm_query=active=true&sysparm_fields=sys_id,name,endpoint,method&sysparm_limit=100\\n```\\n\\nThis query retrieves active REST messages with specific fields and limits the result to 100 entries. If' additional_kwargs={} response_metadata={}",
+              "additional_kwargs": {},
+              "response_metadata": {},
+              "type": "tool",
+              "name": "createAPIParam",
+              "id": null,
+              "tool_call_id": "call_6mkbQf7ogWvAcg0bPgSZwxjz",
+              "artifact": null,
+              "status": "success"
+            },
+            {
+              "content": "Not found.",
+              "additional_kwargs": {},
+              "response_metadata": {},
+              "type": "tool",
+              "name": "GetsAnyDetail",
+              "id": null,
+              "tool_call_id": "call_ZfXqdJA2DwD6gq5QqsnAby0z",
+              "artifact": null,
+              "status": "success"
+            },
+            {
+              "content": "It appears that I'm still unable to find the `sys_rest_message` table in ServiceNow. Let's clarify the situation:\n\n1. **Check Table Name**: The table `sys_rest_message` does not seem to exist. The table that might contain the information you are looking for could be `rest_message`. \n2. **Query Attempt**: I attempted to retrieve details from the `sys_rest_message` table, but it returned \"Not found\" again.\n\nWould you like me to try",
+              "additional_kwargs": {},
+              "response_metadata": {},
+              "type": "ai",
+              "name": null,
+              "id": null,
+              "example": false,
+              "tool_calls": [],
+              "invalid_tool_calls": [],
+              "usage_metadata": null
+            },
+            {
+              "content": "what is the api parameter filter you used?",
+              "additional_kwargs": {},
+              "response_metadata": {},
+              "type": "human",
+              "name": null,
+              "id": null,
+              "example": false
+            },
+            {
+              "content": "The API parameter filter I used to attempt to retrieve details from the `sys_rest_message` table was:\n\n```\n/sys_rest_message?sysparm_query=active=true&sysparm_fields=sys_id,name,endpoint,method&sysparm_limit=100\n```\n\nThis query was designed to retrieve active REST messages, specifically the fields `sys_id`, `name`, `endpoint`, and `method`, while limiting the results to 100 entries.\n\nSince it seems that the `sys_rest_message",
+              "additional_kwargs": {},
+              "response_metadata": {},
+              "type": "ai",
+              "name": null,
+              "id": null,
+              "example": false,
+              "tool_calls": [],
+              "invalid_tool_calls": [],
+              "usage_metadata": null
+            }
+          ],
+          "previous_messages": [
+            {
+              "content": "\n        You are ServiceNow Agentic AI, an expert assistant for ServiceNow integration and automation. You understand the ServiceNow data model, tables, and APIs, and you can guide users through creating, retrieving, and updating records.\n        You have access to a set of tools. Your job is to decide when to call them, gather all necessary inputs, and confirm with the user before taking final action.\n        \n        General Rules:\n        Carefully understand the user\u2019s query.\n        Break it down into clear, logical actions.\n        If you suspect the request might be invalid or ambiguous, immediately highlight it and ask for clarification.\n        Always verify the table name and payload for correctness.\n        Ask for any required information if it is missing.\n\n        Tool Usage:\n        For GET requests, use the createAPIParam tool to determine the table name.\n        For retrieving details, use the GetsAnyDetail tool.\n        For creating a new record, use the createEndPointPayload tool to get the table name and payload, and then the CreateANewRecord_in_SNOW tool to create it.\n        Always select the appropriate tool based on the user\u2019s intent\n\n        Interaction Guide :\n        Always confirm the final action with the user before executing it. Clearly present the plan and ask: \u201cDo you want me to proceed?\u201d\n        If you make a mistake (e.g., wrong table or payload), apologize and correct yourself.\n        If a tool call fails:\n            Analyze whether the input you provided was correct.\n            If it was incorrect, fix it and try again.\n            If it fails again, inform the user about the issue honestly and suggest next step\n        \n        Behaviour Example:\n        If the user says: \u201cCreate an incident,\u201d you should respond:\n        -\u201cSure! I\u2019ll help you create an Incident. Please provide the following details: Short Description, Description, Caller, and Category (if any).\u201d\n\n        If the user says \u201cGet details from desk_message,\u201d and the table doesn\u2019t exist:\n        -\u201cI couldn\u2019t find a table called desk_message in ServiceNow. Could you confirm the correct table name? Did you mean rest_message perhaps?\u201d\n\nNote - If you error in getting tool output. analyze if the input you provided is correct. Fix it and run it again. If still not working - inform user about the issue.\n        \n",
+              "additional_kwargs": {},
+              "response_metadata": {},
+              "type": "system",
+              "name": null,
+              "id": null
+            },
+            {
+              "content": "Give me list of rest messages available in system",
+              "additional_kwargs": {},
+              "response_metadata": {},
+              "type": "human",
+              "name": null,
+              "id": null,
+              "example": false
+            },
+            {
+              "content": "content='/ sys_rest_message?sysparm_query=&sysparm_fields=*fields*&sysparm_limit=*limit*' additional_kwargs={} response_metadata={}",
+              "additional_kwargs": {},
+              "response_metadata": {},
+              "type": "tool",
+              "name": "createAPIParam",
+              "id": null,
+              "tool_call_id": "call_nr8frCFHV9pBsNRRgTDD42AI",
+              "artifact": null,
+              "status": "success"
+            },
+            {
+              "content": "Not found.",
+              "additional_kwargs": {},
+              "response_metadata": {},
+              "type": "tool",
+              "name": "GetsAnyDetail",
+              "id": null,
+              "tool_call_id": "call_Y4MfaunMNXClrvFIiYrLZsfY",
+              "artifact": null,
+              "status": "success"
+            },
+            {
+              "content": "It seems that I couldn't find a table called `sys_rest_message` in ServiceNow. Could you confirm the correct table name? Did you mean `rest_message` perhaps?",
+              "additional_kwargs": {},
+              "response_metadata": {},
+              "type": "ai",
+              "name": null,
+              "id": null,
+              "example": false,
+              "tool_calls": [],
+              "invalid_tool_calls": [],
+              "usage_metadata": null
+            },
+            {
+              "content": "try again",
+              "additional_kwargs": {},
+              "response_metadata": {},
+              "type": "human",
+              "name": null,
+              "id": null,
+              "example": false
+            },
+            {
+              "content": "content='To get details from the `sys_rest_message` table, the query is quite broad. Since no specific filtering criteria was provided, I will create a basic query to retrieve all details from the `sys_rest_message` table.\\n\\nAnswer: \\n```\\n/sys_rest_message?sysparm_query=active=true&sysparm_fields=sys_id,name,endpoint,method&sysparm_limit=100\\n```\\n\\nThis query retrieves active REST messages with specific fields and limits the result to 100 entries. If' additional_kwargs={} response_metadata={}",
+              "additional_kwargs": {},
+              "response_metadata": {},
+              "type": "tool",
+              "name": "createAPIParam",
+              "id": null,
+              "tool_call_id": "call_6mkbQf7ogWvAcg0bPgSZwxjz",
+              "artifact": null,
+              "status": "success"
+            },
+            {
+              "content": "Not found.",
+              "additional_kwargs": {},
+              "response_metadata": {},
+              "type": "tool",
+              "name": "GetsAnyDetail",
+              "id": null,
+              "tool_call_id": "call_ZfXqdJA2DwD6gq5QqsnAby0z",
+              "artifact": null,
+              "status": "success"
+            },
+            {
+              "content": "It appears that I'm still unable to find the `sys_rest_message` table in ServiceNow. Let's clarify the situation:\n\n1. **Check Table Name**: The table `sys_rest_message` does not seem to exist. The table that might contain the information you are looking for could be `rest_message`. \n2. **Query Attempt**: I attempted to retrieve details from the `sys_rest_message` table, but it returned \"Not found\" again.\n\nWould you like me to try",
+              "additional_kwargs": {},
+              "response_metadata": {},
+              "type": "ai",
+              "name": null,
+              "id": null,
+              "example": false,
+              "tool_calls": [],
+              "invalid_tool_calls": [],
+              "usage_metadata": null
+            },
+            {
+              "content": "what is the api parameter filter you used?",
+              "additional_kwargs": {},
+              "response_metadata": {},
+              "type": "human",
+              "name": null,
+              "id": null,
+              "example": false
+            }
+          ]
+        }
+      },
+      {
+        "role": "user",
+        "content": "your parameter is correct"
+      },
+      {
+        "role": "bot",
+        "content": "It appears that the API parameter I used is correct, but the table `sys_rest_message` still could not be found. Would you like me to try retrieving details from a different table, such as `rest_message`, or do you have any other specific requests? Please let me know how you would like to proceed!",
+        "full_response": {
+          "messages": [
+            {
+              "content": "\n        You are ServiceNow Agentic AI, an expert assistant for ServiceNow integration and automation. You understand the ServiceNow data model, tables, and APIs, and you can guide users through creating, retrieving, and updating records.\n        You have access to a set of tools. Your job is to decide when to call them, gather all necessary inputs, and confirm with the user before taking final action.\n        \n        General Rules:\n        Carefully understand the user\u2019s query.\n        Break it down into clear, logical actions.\n        If you suspect the request might be invalid or ambiguous, immediately highlight it and ask for clarification.\n        Always verify the table name and payload for correctness.\n        Ask for any required information if it is missing.\n\n        Tool Usage:\n        For GET requests, use the createAPIParam tool to determine the table name.\n        For retrieving details, use the GetsAnyDetail tool.\n        For creating a new record, use the createEndPointPayload tool to get the table name and payload, and then the CreateANewRecord_in_SNOW tool to create it.\n        Always select the appropriate tool based on the user\u2019s intent\n\n        Interaction Guide :\n        Always confirm the final action with the user before executing it. Clearly present the plan and ask: \u201cDo you want me to proceed?\u201d\n        If you make a mistake (e.g., wrong table or payload), apologize and correct yourself.\n        If a tool call fails:\n            Analyze whether the input you provided was correct.\n            If it was incorrect, fix it and try again.\n            If it fails again, inform the user about the issue honestly and suggest next step\n        \n        Behaviour Example:\n        If the user says: \u201cCreate an incident,\u201d you should respond:\n        -\u201cSure! I\u2019ll help you create an Incident. Please provide the following details: Short Description, Description, Caller, and Category (if any).\u201d\n\n        If the user says \u201cGet details from desk_message,\u201d and the table doesn\u2019t exist:\n        -\u201cI couldn\u2019t find a table called desk_message in ServiceNow. Could you confirm the correct table name? Did you mean rest_message perhaps?\u201d\n\nNote - If you error in getting tool output. analyze if the input you provided is correct. Fix it and run it again. If still not working - inform user about the issue.\n        \n",
+              "additional_kwargs": {},
+              "response_metadata": {},
+              "type": "system",
+              "name": null,
+              "id": null
+            },
+            {
+              "content": "Give me list of rest messages available in system",
+              "additional_kwargs": {},
+              "response_metadata": {},
+              "type": "human",
+              "name": null,
+              "id": null,
+              "example": false
+            },
+            {
+              "content": "content='/ sys_rest_message?sysparm_query=&sysparm_fields=*fields*&sysparm_limit=*limit*' additional_kwargs={} response_metadata={}",
+              "additional_kwargs": {},
+              "response_metadata": {},
+              "type": "tool",
+              "name": "createAPIParam",
+              "id": null,
+              "tool_call_id": "call_nr8frCFHV9pBsNRRgTDD42AI",
+              "artifact": null,
+              "status": "success"
+            },
+            {
+              "content": "Not found.",
+              "additional_kwargs": {},
+              "response_metadata": {},
+              "type": "tool",
+              "name": "GetsAnyDetail",
+              "id": null,
+              "tool_call_id": "call_Y4MfaunMNXClrvFIiYrLZsfY",
+              "artifact": null,
+              "status": "success"
+            },
+            {
+              "content": "It seems that I couldn't find a table called `sys_rest_message` in ServiceNow. Could you confirm the correct table name? Did you mean `rest_message` perhaps?",
+              "additional_kwargs": {},
+              "response_metadata": {},
+              "type": "ai",
+              "name": null,
+              "id": null,
+              "example": false,
+              "tool_calls": [],
+              "invalid_tool_calls": [],
+              "usage_metadata": null
+            },
+            {
+              "content": "try again",
+              "additional_kwargs": {},
+              "response_metadata": {},
+              "type": "human",
+              "name": null,
+              "id": null,
+              "example": false
+            },
+            {
+              "content": "content='To get details from the `sys_rest_message` table, the query is quite broad. Since no specific filtering criteria was provided, I will create a basic query to retrieve all details from the `sys_rest_message` table.\\n\\nAnswer: \\n```\\n/sys_rest_message?sysparm_query=active=true&sysparm_fields=sys_id,name,endpoint,method&sysparm_limit=100\\n```\\n\\nThis query retrieves active REST messages with specific fields and limits the result to 100 entries. If' additional_kwargs={} response_metadata={}",
+              "additional_kwargs": {},
+              "response_metadata": {},
+              "type": "tool",
+              "name": "createAPIParam",
+              "id": null,
+              "tool_call_id": "call_6mkbQf7ogWvAcg0bPgSZwxjz",
+              "artifact": null,
+              "status": "success"
+            },
+            {
+              "content": "Not found.",
+              "additional_kwargs": {},
+              "response_metadata": {},
+              "type": "tool",
+              "name": "GetsAnyDetail",
+              "id": null,
+              "tool_call_id": "call_ZfXqdJA2DwD6gq5QqsnAby0z",
+              "artifact": null,
+              "status": "success"
+            },
+            {
+              "content": "It appears that I'm still unable to find the `sys_rest_message` table in ServiceNow. Let's clarify the situation:\n\n1. **Check Table Name**: The table `sys_rest_message` does not seem to exist. The table that might contain the information you are looking for could be `rest_message`. \n2. **Query Attempt**: I attempted to retrieve details from the `sys_rest_message` table, but it returned \"Not found\" again.\n\nWould you like me to try",
+              "additional_kwargs": {},
+              "response_metadata": {},
+              "type": "ai",
+              "name": null,
+              "id": null,
+              "example": false,
+              "tool_calls": [],
+              "invalid_tool_calls": [],
+              "usage_metadata": null
+            },
+            {
+              "content": "what is the api parameter filter you used?",
+              "additional_kwargs": {},
+              "response_metadata": {},
+              "type": "human",
+              "name": null,
+              "id": null,
+              "example": false
+            },
+            {
+              "content": "The API parameter filter I used to attempt to retrieve details from the `sys_rest_message` table was:\n\n```\n/sys_rest_message?sysparm_query=active=true&sysparm_fields=sys_id,name,endpoint,method&sysparm_limit=100\n```\n\nThis query was designed to retrieve active REST messages, specifically the fields `sys_id`, `name`, `endpoint`, and `method`, while limiting the results to 100 entries.\n\nSince it seems that the `sys_rest_message",
+              "additional_kwargs": {},
+              "response_metadata": {},
+              "type": "ai",
+              "name": null,
+              "id": null,
+              "example": false,
+              "tool_calls": [],
+              "invalid_tool_calls": [],
+              "usage_metadata": null
+            },
+            {
+              "content": "your parameter is correct",
+              "additional_kwargs": {},
+              "response_metadata": {},
+              "type": "human",
+              "name": null,
+              "id": null,
+              "example": false
+            },
+            {
+              "content": "It appears that the API parameter I used is correct, but the table `sys_rest_message` still could not be found. Would you like me to try retrieving details from a different table, such as `rest_message`, or do you have any other specific requests? Please let me know how you would like to proceed!",
+              "additional_kwargs": {},
+              "response_metadata": {},
+              "type": "ai",
+              "name": null,
+              "id": null,
+              "example": false,
+              "tool_calls": [],
+              "invalid_tool_calls": [],
+              "usage_metadata": null
+            }
+          ],
+          "previous_messages": [
+            {
+              "content": "\n        You are ServiceNow Agentic AI, an expert assistant for ServiceNow integration and automation. You understand the ServiceNow data model, tables, and APIs, and you can guide users through creating, retrieving, and updating records.\n        You have access to a set of tools. Your job is to decide when to call them, gather all necessary inputs, and confirm with the user before taking final action.\n        \n        General Rules:\n        Carefully understand the user\u2019s query.\n        Break it down into clear, logical actions.\n        If you suspect the request might be invalid or ambiguous, immediately highlight it and ask for clarification.\n        Always verify the table name and payload for correctness.\n        Ask for any required information if it is missing.\n\n        Tool Usage:\n        For GET requests, use the createAPIParam tool to determine the table name.\n        For retrieving details, use the GetsAnyDetail tool.\n        For creating a new record, use the createEndPointPayload tool to get the table name and payload, and then the CreateANewRecord_in_SNOW tool to create it.\n        Always select the appropriate tool based on the user\u2019s intent\n\n        Interaction Guide :\n        Always confirm the final action with the user before executing it. Clearly present the plan and ask: \u201cDo you want me to proceed?\u201d\n        If you make a mistake (e.g., wrong table or payload), apologize and correct yourself.\n        If a tool call fails:\n            Analyze whether the input you provided was correct.\n            If it was incorrect, fix it and try again.\n            If it fails again, inform the user about the issue honestly and suggest next step\n        \n        Behaviour Example:\n        If the user says: \u201cCreate an incident,\u201d you should respond:\n        -\u201cSure! I\u2019ll help you create an Incident. Please provide the following details: Short Description, Description, Caller, and Category (if any).\u201d\n\n        If the user says \u201cGet details from desk_message,\u201d and the table doesn\u2019t exist:\n        -\u201cI couldn\u2019t find a table called desk_message in ServiceNow. Could you confirm the correct table name? Did you mean rest_message perhaps?\u201d\n\nNote - If you error in getting tool output. analyze if the input you provided is correct. Fix it and run it again. If still not working - inform user about the issue.\n        \n",
+              "additional_kwargs": {},
+              "response_metadata": {},
+              "type": "system",
+              "name": null,
+              "id": null
+            },
+            {
+              "content": "Give me list of rest messages available in system",
+              "additional_kwargs": {},
+              "response_metadata": {},
+              "type": "human",
+              "name": null,
+              "id": null,
+              "example": false
+            },
+            {
+              "content": "content='/ sys_rest_message?sysparm_query=&sysparm_fields=*fields*&sysparm_limit=*limit*' additional_kwargs={} response_metadata={}",
+              "additional_kwargs": {},
+              "response_metadata": {},
+              "type": "tool",
+              "name": "createAPIParam",
+              "id": null,
+              "tool_call_id": "call_nr8frCFHV9pBsNRRgTDD42AI",
+              "artifact": null,
+              "status": "success"
+            },
+            {
+              "content": "Not found.",
+              "additional_kwargs": {},
+              "response_metadata": {},
+              "type": "tool",
+              "name": "GetsAnyDetail",
+              "id": null,
+              "tool_call_id": "call_Y4MfaunMNXClrvFIiYrLZsfY",
+              "artifact": null,
+              "status": "success"
+            },
+            {
+              "content": "It seems that I couldn't find a table called `sys_rest_message` in ServiceNow. Could you confirm the correct table name? Did you mean `rest_message` perhaps?",
+              "additional_kwargs": {},
+              "response_metadata": {},
+              "type": "ai",
+              "name": null,
+              "id": null,
+              "example": false,
+              "tool_calls": [],
+              "invalid_tool_calls": [],
+              "usage_metadata": null
+            },
+            {
+              "content": "try again",
+              "additional_kwargs": {},
+              "response_metadata": {},
+              "type": "human",
+              "name": null,
+              "id": null,
+              "example": false
+            },
+            {
+              "content": "content='To get details from the `sys_rest_message` table, the query is quite broad. Since no specific filtering criteria was provided, I will create a basic query to retrieve all details from the `sys_rest_message` table.\\n\\nAnswer: \\n```\\n/sys_rest_message?sysparm_query=active=true&sysparm_fields=sys_id,name,endpoint,method&sysparm_limit=100\\n```\\n\\nThis query retrieves active REST messages with specific fields and limits the result to 100 entries. If' additional_kwargs={} response_metadata={}",
+              "additional_kwargs": {},
+              "response_metadata": {},
+              "type": "tool",
+              "name": "createAPIParam",
+              "id": null,
+              "tool_call_id": "call_6mkbQf7ogWvAcg0bPgSZwxjz",
+              "artifact": null,
+              "status": "success"
+            },
+            {
+              "content": "Not found.",
+              "additional_kwargs": {},
+              "response_metadata": {},
+              "type": "tool",
+              "name": "GetsAnyDetail",
+              "id": null,
+              "tool_call_id": "call_ZfXqdJA2DwD6gq5QqsnAby0z",
+              "artifact": null,
+              "status": "success"
+            },
+            {
+              "content": "It appears that I'm still unable to find the `sys_rest_message` table in ServiceNow. Let's clarify the situation:\n\n1. **Check Table Name**: The table `sys_rest_message` does not seem to exist. The table that might contain the information you are looking for could be `rest_message`. \n2. **Query Attempt**: I attempted to retrieve details from the `sys_rest_message` table, but it returned \"Not found\" again.\n\nWould you like me to try",
+              "additional_kwargs": {},
+              "response_metadata": {},
+              "type": "ai",
+              "name": null,
+              "id": null,
+              "example": false,
+              "tool_calls": [],
+              "invalid_tool_calls": [],
+              "usage_metadata": null
+            },
+            {
+              "content": "what is the api parameter filter you used?",
+              "additional_kwargs": {},
+              "response_metadata": {},
+              "type": "human",
+              "name": null,
+              "id": null,
+              "example": false
+            },
+            {
+              "content": "The API parameter filter I used to attempt to retrieve details from the `sys_rest_message` table was:\n\n```\n/sys_rest_message?sysparm_query=active=true&sysparm_fields=sys_id,name,endpoint,method&sysparm_limit=100\n```\n\nThis query was designed to retrieve active REST messages, specifically the fields `sys_id`, `name`, `endpoint`, and `method`, while limiting the results to 100 entries.\n\nSince it seems that the `sys_rest_message",
+              "additional_kwargs": {},
+              "response_metadata": {},
+              "type": "ai",
+              "name": null,
+              "id": null,
+              "example": false,
+              "tool_calls": [],
+              "invalid_tool_calls": [],
+              "usage_metadata": null
+            },
+            {
+              "content": "your parameter is correct",
+              "additional_kwargs": {},
+              "response_metadata": {},
+              "type": "human",
+              "name": null,
+              "id": null,
+              "example": false
+            }
+          ]
+        }
+      },
+      {
+        "role": "user",
+        "content": "It is working in Postman. Try again"
+      },
+      {
+        "role": "bot",
+        "content": "I successfully retrieved a list of REST messages from the `sys_rest_message` table. Here are the details:\n\n1. **Firebase Cloud Messaging V1 Send**\n   - **sys_id**: 3a9d85e6c36021105e1a6333d840dd4c\n\n2. **Firebase Cloud Messaging Send**\n   - **sys_id**: 84b45b63ff1331009738ffffffffffb9\n\n3. **Yahoo Finance**\n",
+        "full_response": {
+          "messages": [
+            {
+              "content": "\n        You are ServiceNow Agentic AI, an expert assistant for ServiceNow integration and automation. You understand the ServiceNow data model, tables, and APIs, and you can guide users through creating, retrieving, and updating records.\n        You have access to a set of tools. Your job is to decide when to call them, gather all necessary inputs, and confirm with the user before taking final action.\n        \n        General Rules:\n        Carefully understand the user\u2019s query.\n        Break it down into clear, logical actions.\n        If you suspect the request might be invalid or ambiguous, immediately highlight it and ask for clarification.\n        Always verify the table name and payload for correctness.\n        Ask for any required information if it is missing.\n\n        Tool Usage:\n        For GET requests, use the createAPIParam tool to determine the table name.\n        For retrieving details, use the GetsAnyDetail tool.\n        For creating a new record, use the createEndPointPayload tool to get the table name and payload, and then the CreateANewRecord_in_SNOW tool to create it.\n        Always select the appropriate tool based on the user\u2019s intent\n\n        Interaction Guide :\n        Always confirm the final action with the user before executing it. Clearly present the plan and ask: \u201cDo you want me to proceed?\u201d\n        If you make a mistake (e.g., wrong table or payload), apologize and correct yourself.\n        If a tool call fails:\n            Analyze whether the input you provided was correct.\n            If it was incorrect, fix it and try again.\n            If it fails again, inform the user about the issue honestly and suggest next step\n        \n        Behaviour Example:\n        If the user says: \u201cCreate an incident,\u201d you should respond:\n        -\u201cSure! I\u2019ll help you create an Incident. Please provide the following details: Short Description, Description, Caller, and Category (if any).\u201d\n\n        If the user says \u201cGet details from desk_message,\u201d and the table doesn\u2019t exist:\n        -\u201cI couldn\u2019t find a table called desk_message in ServiceNow. Could you confirm the correct table name? Did you mean rest_message perhaps?\u201d\n\nNote - If you error in getting tool output. analyze if the input you provided is correct. Fix it and run it again. If still not working - inform user about the issue.\n        \n",
+              "additional_kwargs": {},
+              "response_metadata": {},
+              "type": "system",
+              "name": null,
+              "id": null
+            },
+            {
+              "content": "Give me list of rest messages available in system",
+              "additional_kwargs": {},
+              "response_metadata": {},
+              "type": "human",
+              "name": null,
+              "id": null,
+              "example": false
+            },
+            {
+              "content": "content='/ sys_rest_message?sysparm_query=&sysparm_fields=*fields*&sysparm_limit=*limit*' additional_kwargs={} response_metadata={}",
+              "additional_kwargs": {},
+              "response_metadata": {},
+              "type": "tool",
+              "name": "createAPIParam",
+              "id": null,
+              "tool_call_id": "call_nr8frCFHV9pBsNRRgTDD42AI",
+              "artifact": null,
+              "status": "success"
+            },
+            {
+              "content": "Not found.",
+              "additional_kwargs": {},
+              "response_metadata": {},
+              "type": "tool",
+              "name": "GetsAnyDetail",
+              "id": null,
+              "tool_call_id": "call_Y4MfaunMNXClrvFIiYrLZsfY",
+              "artifact": null,
+              "status": "success"
+            },
+            {
+              "content": "It seems that I couldn't find a table called `sys_rest_message` in ServiceNow. Could you confirm the correct table name? Did you mean `rest_message` perhaps?",
+              "additional_kwargs": {},
+              "response_metadata": {},
+              "type": "ai",
+              "name": null,
+              "id": null,
+              "example": false,
+              "tool_calls": [],
+              "invalid_tool_calls": [],
+              "usage_metadata": null
+            },
+            {
+              "content": "try again",
+              "additional_kwargs": {},
+              "response_metadata": {},
+              "type": "human",
+              "name": null,
+              "id": null,
+              "example": false
+            },
+            {
+              "content": "content='To get details from the `sys_rest_message` table, the query is quite broad. Since no specific filtering criteria was provided, I will create a basic query to retrieve all details from the `sys_rest_message` table.\\n\\nAnswer: \\n```\\n/sys_rest_message?sysparm_query=active=true&sysparm_fields=sys_id,name,endpoint,method&sysparm_limit=100\\n```\\n\\nThis query retrieves active REST messages with specific fields and limits the result to 100 entries. If' additional_kwargs={} response_metadata={}",
+              "additional_kwargs": {},
+              "response_metadata": {},
+              "type": "tool",
+              "name": "createAPIParam",
+              "id": null,
+              "tool_call_id": "call_6mkbQf7ogWvAcg0bPgSZwxjz",
+              "artifact": null,
+              "status": "success"
+            },
+            {
+              "content": "Not found.",
+              "additional_kwargs": {},
+              "response_metadata": {},
+              "type": "tool",
+              "name": "GetsAnyDetail",
+              "id": null,
+              "tool_call_id": "call_ZfXqdJA2DwD6gq5QqsnAby0z",
+              "artifact": null,
+              "status": "success"
+            },
+            {
+              "content": "It appears that I'm still unable to find the `sys_rest_message` table in ServiceNow. Let's clarify the situation:\n\n1. **Check Table Name**: The table `sys_rest_message` does not seem to exist. The table that might contain the information you are looking for could be `rest_message`. \n2. **Query Attempt**: I attempted to retrieve details from the `sys_rest_message` table, but it returned \"Not found\" again.\n\nWould you like me to try",
+              "additional_kwargs": {},
+              "response_metadata": {},
+              "type": "ai",
+              "name": null,
+              "id": null,
+              "example": false,
+              "tool_calls": [],
+              "invalid_tool_calls": [],
+              "usage_metadata": null
+            },
+            {
+              "content": "what is the api parameter filter you used?",
+              "additional_kwargs": {},
+              "response_metadata": {},
+              "type": "human",
+              "name": null,
+              "id": null,
+              "example": false
+            },
+            {
+              "content": "The API parameter filter I used to attempt to retrieve details from the `sys_rest_message` table was:\n\n```\n/sys_rest_message?sysparm_query=active=true&sysparm_fields=sys_id,name,endpoint,method&sysparm_limit=100\n```\n\nThis query was designed to retrieve active REST messages, specifically the fields `sys_id`, `name`, `endpoint`, and `method`, while limiting the results to 100 entries.\n\nSince it seems that the `sys_rest_message",
+              "additional_kwargs": {},
+              "response_metadata": {},
+              "type": "ai",
+              "name": null,
+              "id": null,
+              "example": false,
+              "tool_calls": [],
+              "invalid_tool_calls": [],
+              "usage_metadata": null
+            },
+            {
+              "content": "your parameter is correct",
+              "additional_kwargs": {},
+              "response_metadata": {},
+              "type": "human",
+              "name": null,
+              "id": null,
+              "example": false
+            },
+            {
+              "content": "It appears that the API parameter I used is correct, but the table `sys_rest_message` still could not be found. Would you like me to try retrieving details from a different table, such as `rest_message`, or do you have any other specific requests? Please let me know how you would like to proceed!",
+              "additional_kwargs": {},
+              "response_metadata": {},
+              "type": "ai",
+              "name": null,
+              "id": null,
+              "example": false,
+              "tool_calls": [],
+              "invalid_tool_calls": [],
+              "usage_metadata": null
+            },
+            {
+              "content": "It is working in Postman. Try again",
+              "additional_kwargs": {},
+              "response_metadata": {},
+              "type": "human",
+              "name": null,
+              "id": null,
+              "example": false
+            },
+            {
+              "content": "content='/sys_rest_message?sysparm_query=&sysparm_fields=sys_id,name,description,sys_created_on&sysparm_limit=100' additional_kwargs={} response_metadata={}",
+              "additional_kwargs": {},
+              "response_metadata": {},
+              "type": "tool",
+              "name": "createAPIParam",
+              "id": null,
+              "tool_call_id": "call_DGXbsDxfITQQMsctnyEfrqsB",
+              "artifact": null,
+              "status": "success"
+            },
+            {
+              "content": "{\"result\": [{\"sys_id\": \"3a9d85e6c36021105e1a6333d840dd4c\", \"name\": \"Firebase Cloud Messaging V1 Send\"}, {\"sys_id\": \"84b45b63ff1331009738ffffffffffb9\", \"name\": \"Firebase Cloud Messaging Send\"}, {\"sys_id\": \"bd478c46df020100cd7da5f59bf2636f\", \"name\": \"Yahoo Finance\"}, {\"sys_id\": \"ded0e522ff1231009738fffffffffffc\", \"name\": \"ServiceNowMobileApp Push\"}]}",
+              "additional_kwargs": {},
+              "response_metadata": {},
+              "type": "tool",
+              "name": "GetsAnyDetail",
+              "id": null,
+              "tool_call_id": "call_Ivbdcv1S6j00S11NUAFQZBdu",
+              "artifact": null,
+              "status": "success"
+            },
+            {
+              "content": "I successfully retrieved a list of REST messages from the `sys_rest_message` table. Here are the details:\n\n1. **Firebase Cloud Messaging V1 Send**\n   - **sys_id**: 3a9d85e6c36021105e1a6333d840dd4c\n\n2. **Firebase Cloud Messaging Send**\n   - **sys_id**: 84b45b63ff1331009738ffffffffffb9\n\n3. **Yahoo Finance**\n",
+              "additional_kwargs": {},
+              "response_metadata": {},
+              "type": "ai",
+              "name": null,
+              "id": null,
+              "example": false,
+              "tool_calls": [],
+              "invalid_tool_calls": [],
+              "usage_metadata": null
+            }
+          ],
+          "previous_messages": [
+            {
+              "content": "\n        You are ServiceNow Agentic AI, an expert assistant for ServiceNow integration and automation. You understand the ServiceNow data model, tables, and APIs, and you can guide users through creating, retrieving, and updating records.\n        You have access to a set of tools. Your job is to decide when to call them, gather all necessary inputs, and confirm with the user before taking final action.\n        \n        General Rules:\n        Carefully understand the user\u2019s query.\n        Break it down into clear, logical actions.\n        If you suspect the request might be invalid or ambiguous, immediately highlight it and ask for clarification.\n        Always verify the table name and payload for correctness.\n        Ask for any required information if it is missing.\n\n        Tool Usage:\n        For GET requests, use the createAPIParam tool to determine the table name.\n        For retrieving details, use the GetsAnyDetail tool.\n        For creating a new record, use the createEndPointPayload tool to get the table name and payload, and then the CreateANewRecord_in_SNOW tool to create it.\n        Always select the appropriate tool based on the user\u2019s intent\n\n        Interaction Guide :\n        Always confirm the final action with the user before executing it. Clearly present the plan and ask: \u201cDo you want me to proceed?\u201d\n        If you make a mistake (e.g., wrong table or payload), apologize and correct yourself.\n        If a tool call fails:\n            Analyze whether the input you provided was correct.\n            If it was incorrect, fix it and try again.\n            If it fails again, inform the user about the issue honestly and suggest next step\n        \n        Behaviour Example:\n        If the user says: \u201cCreate an incident,\u201d you should respond:\n        -\u201cSure! I\u2019ll help you create an Incident. Please provide the following details: Short Description, Description, Caller, and Category (if any).\u201d\n\n        If the user says \u201cGet details from desk_message,\u201d and the table doesn\u2019t exist:\n        -\u201cI couldn\u2019t find a table called desk_message in ServiceNow. Could you confirm the correct table name? Did you mean rest_message perhaps?\u201d\n\nNote - If you error in getting tool output. analyze if the input you provided is correct. Fix it and run it again. If still not working - inform user about the issue.\n        \n",
+              "additional_kwargs": {},
+              "response_metadata": {},
+              "type": "system",
+              "name": null,
+              "id": null
+            },
+            {
+              "content": "Give me list of rest messages available in system",
+              "additional_kwargs": {},
+              "response_metadata": {},
+              "type": "human",
+              "name": null,
+              "id": null,
+              "example": false
+            },
+            {
+              "content": "content='/ sys_rest_message?sysparm_query=&sysparm_fields=*fields*&sysparm_limit=*limit*' additional_kwargs={} response_metadata={}",
+              "additional_kwargs": {},
+              "response_metadata": {},
+              "type": "tool",
+              "name": "createAPIParam",
+              "id": null,
+              "tool_call_id": "call_nr8frCFHV9pBsNRRgTDD42AI",
+              "artifact": null,
+              "status": "success"
+            },
+            {
+              "content": "Not found.",
+              "additional_kwargs": {},
+              "response_metadata": {},
+              "type": "tool",
+              "name": "GetsAnyDetail",
+              "id": null,
+              "tool_call_id": "call_Y4MfaunMNXClrvFIiYrLZsfY",
+              "artifact": null,
+              "status": "success"
+            },
+            {
+              "content": "It seems that I couldn't find a table called `sys_rest_message` in ServiceNow. Could you confirm the correct table name? Did you mean `rest_message` perhaps?",
+              "additional_kwargs": {},
+              "response_metadata": {},
+              "type": "ai",
+              "name": null,
+              "id": null,
+              "example": false,
+              "tool_calls": [],
+              "invalid_tool_calls": [],
+              "usage_metadata": null
+            },
+            {
+              "content": "try again",
+              "additional_kwargs": {},
+              "response_metadata": {},
+              "type": "human",
+              "name": null,
+              "id": null,
+              "example": false
+            },
+            {
+              "content": "content='To get details from the `sys_rest_message` table, the query is quite broad. Since no specific filtering criteria was provided, I will create a basic query to retrieve all details from the `sys_rest_message` table.\\n\\nAnswer: \\n```\\n/sys_rest_message?sysparm_query=active=true&sysparm_fields=sys_id,name,endpoint,method&sysparm_limit=100\\n```\\n\\nThis query retrieves active REST messages with specific fields and limits the result to 100 entries. If' additional_kwargs={} response_metadata={}",
+              "additional_kwargs": {},
+              "response_metadata": {},
+              "type": "tool",
+              "name": "createAPIParam",
+              "id": null,
+              "tool_call_id": "call_6mkbQf7ogWvAcg0bPgSZwxjz",
+              "artifact": null,
+              "status": "success"
+            },
+            {
+              "content": "Not found.",
+              "additional_kwargs": {},
+              "response_metadata": {},
+              "type": "tool",
+              "name": "GetsAnyDetail",
+              "id": null,
+              "tool_call_id": "call_ZfXqdJA2DwD6gq5QqsnAby0z",
+              "artifact": null,
+              "status": "success"
+            },
+            {
+              "content": "It appears that I'm still unable to find the `sys_rest_message` table in ServiceNow. Let's clarify the situation:\n\n1. **Check Table Name**: The table `sys_rest_message` does not seem to exist. The table that might contain the information you are looking for could be `rest_message`. \n2. **Query Attempt**: I attempted to retrieve details from the `sys_rest_message` table, but it returned \"Not found\" again.\n\nWould you like me to try",
+              "additional_kwargs": {},
+              "response_metadata": {},
+              "type": "ai",
+              "name": null,
+              "id": null,
+              "example": false,
+              "tool_calls": [],
+              "invalid_tool_calls": [],
+              "usage_metadata": null
+            },
+            {
+              "content": "what is the api parameter filter you used?",
+              "additional_kwargs": {},
+              "response_metadata": {},
+              "type": "human",
+              "name": null,
+              "id": null,
+              "example": false
+            },
+            {
+              "content": "The API parameter filter I used to attempt to retrieve details from the `sys_rest_message` table was:\n\n```\n/sys_rest_message?sysparm_query=active=true&sysparm_fields=sys_id,name,endpoint,method&sysparm_limit=100\n```\n\nThis query was designed to retrieve active REST messages, specifically the fields `sys_id`, `name`, `endpoint`, and `method`, while limiting the results to 100 entries.\n\nSince it seems that the `sys_rest_message",
+              "additional_kwargs": {},
+              "response_metadata": {},
+              "type": "ai",
+              "name": null,
+              "id": null,
+              "example": false,
+              "tool_calls": [],
+              "invalid_tool_calls": [],
+              "usage_metadata": null
+            },
+            {
+              "content": "your parameter is correct",
+              "additional_kwargs": {},
+              "response_metadata": {},
+              "type": "human",
+              "name": null,
+              "id": null,
+              "example": false
+            },
+            {
+              "content": "It appears that the API parameter I used is correct, but the table `sys_rest_message` still could not be found. Would you like me to try retrieving details from a different table, such as `rest_message`, or do you have any other specific requests? Please let me know how you would like to proceed!",
+              "additional_kwargs": {},
+              "response_metadata": {},
+              "type": "ai",
+              "name": null,
+              "id": null,
+              "example": false,
+              "tool_calls": [],
+              "invalid_tool_calls": [],
+              "usage_metadata": null
+            },
+            {
+              "content": "It is working in Postman. Try again",
+              "additional_kwargs": {},
+              "response_metadata": {},
+              "type": "human",
+              "name": null,
+              "id": null,
+              "example": false
+            },
+            {
+              "content": "content='/sys_rest_message?sysparm_query=&sysparm_fields=sys_id,name,description,sys_created_on&sysparm_limit=100' additional_kwargs={} response_metadata={}",
+              "additional_kwargs": {},
+              "response_metadata": {},
+              "type": "tool",
+              "name": "createAPIParam",
+              "id": null,
+              "tool_call_id": "call_DGXbsDxfITQQMsctnyEfrqsB",
+              "artifact": null,
+              "status": "success"
+            },
+            {
+              "content": "{\"result\": [{\"sys_id\": \"3a9d85e6c36021105e1a6333d840dd4c\", \"name\": \"Firebase Cloud Messaging V1 Send\"}, {\"sys_id\": \"84b45b63ff1331009738ffffffffffb9\", \"name\": \"Firebase Cloud Messaging Send\"}, {\"sys_id\": \"bd478c46df020100cd7da5f59bf2636f\", \"name\": \"Yahoo Finance\"}, {\"sys_id\": \"ded0e522ff1231009738fffffffffffc\", \"name\": \"ServiceNowMobileApp Push\"}]}",
+              "additional_kwargs": {},
+              "response_metadata": {},
+              "type": "tool",
+              "name": "GetsAnyDetail",
+              "id": null,
+              "tool_call_id": "call_Ivbdcv1S6j00S11NUAFQZBdu",
+              "artifact": null,
+              "status": "success"
+            }
+          ]
+        }
+      }
+    ]
+  },
+  "a1064ad2-89e3-4b5f-9769-d521028f29ba": {
+    "name": "Thread 2",
+    "messages": [
+      {
+        "role": "user",
+        "content": "Give me list of all update sets in table with all possible details"
+      },
+      {
+        "role": "bot",
+        "content": "Here is the list of all update sets along with their details:\n\n1. **Update Set Name:** New Update Set\n   - **Sys ID:** 1f5daa26c3622210d277befdd40131b3\n   - **Description:** Description of the update set\n   - **State:** In Progress\n   - **Created On:** 2025-07-08 10:29:12\n   - **Updated On:** 2025-07",
+        "full_response": {
+          "messages": [
+            {
+              "content": "\n        You are ServiceNow Agentic AI, an expert assistant for ServiceNow integration and automation. You understand the ServiceNow data model, tables, and APIs, and you can guide users through creating, retrieving, and updating records.\n        You have access to a set of tools. Your job is to decide when to call them, gather all necessary inputs, and confirm with the user before taking final action.\n        \n        General Rules:\n        Carefully understand the user\u2019s query.\n        Break it down into clear, logical actions.\n        If you suspect the request might be invalid or ambiguous, immediately highlight it and ask for clarification.\n        Always verify the table name and payload for correctness.\n        Ask for any required information if it is missing.\n\n        Tool Usage:\n        For GET requests, use the createAPIParam tool to determine the table name.\n        For retrieving details, use the GetsAnyDetail tool.\n        For creating a new record, use the createEndPointPayload tool to get the table name and payload, and then the CreateANewRecord_in_SNOW tool to create it.\n        Always select the appropriate tool based on the user\u2019s intent\n\n        Interaction Guide :\n        Always confirm the final action with the user before executing it. Clearly present the plan and ask: \u201cDo you want me to proceed?\u201d\n        If you make a mistake (e.g., wrong table or payload), apologize and correct yourself.\n        If a tool call fails:\n            Analyze whether the input you provided was correct.\n            If it was incorrect, fix it and try again.\n            If it fails again, inform the user about the issue honestly and suggest next step\n        \n        Behaviour Example:\n        If the user says: \u201cCreate an incident,\u201d you should respond:\n        -\u201cSure! I\u2019ll help you create an Incident. Please provide the following details: Short Description, Description, Caller, and Category (if any).\u201d\n\n        If the user says \u201cGet details from desk_message,\u201d and the table doesn\u2019t exist:\n        -\u201cI couldn\u2019t find a table called desk_message in ServiceNow. Could you confirm the correct table name? Did you mean rest_message perhaps?\u201d\n\nNote - If you error in getting tool output. analyze if the input you provided is correct. Fix it and run it again. If still not working - inform user about the issue.\n        \n",
+              "additional_kwargs": {},
+              "response_metadata": {},
+              "type": "system",
+              "name": null,
+              "id": null
+            },
+            {
+              "content": "Give me list of all update sets in table with all possible details",
+              "additional_kwargs": {},
+              "response_metadata": {},
+              "type": "human",
+              "name": null,
+              "id": null,
+              "example": false
+            },
+            {
+              "content": "content='/sys_update_set?sysparm_query=&sysparm_fields=sys_id,name,state,sys_created_on,sys_updated_on,sys_created_by,sys_updated_by,description&sysparm_limit=1000' additional_kwargs={} response_metadata={}",
+              "additional_kwargs": {},
+              "response_metadata": {},
+              "type": "tool",
+              "name": "createAPIParam",
+              "id": null,
+              "tool_call_id": "call_ytCKhea0xG6x1OjidoMatX0n",
+              "artifact": null,
+              "status": "success"
+            },
+            {
+              "content": "{\"result\": [{\"sys_id\": \"1f5daa26c3622210d277befdd40131b3\", \"sys_updated_by\": \"integration.account\", \"sys_created_on\": \"2025-07-08 10:29:12\", \"name\": \"New Update Set\", \"description\": \"Description of the update set\", \"state\": \"in progress\", \"sys_updated_on\": \"2025-07-08 15:01:07\", \"sys_created_by\": \"integration.account\"}, {\"sys_id\": \"5e9b6feec3e62210d277befdd4013121\", \"sys_updated_by\": \"integration.account\", \"sys_created_on\": \"2025-07-08 15:01:07\", \"name\": \"UpdateSet from StreamLit\", \"description\": \"Update set created from streamlit.\", \"state\": \"in progress\", \"sys_updated_on\": \"2025-07-08 15:01:07\", \"sys_created_by\": \"integration.account\"}, {\"sys_id\": \"7de90a1ac3562210d277befdd40131ba\", \"sys_updated_by\": \"system\", \"sys_created_on\": \"2025-06-25 03:00:06\", \"name\": \"Default\", \"description\": \"Automatically created by the system\", \"state\": \"in progress\", \"sys_updated_on\": \"2025-06-25 03:00:06\", \"sys_created_by\": \"system\"}, {\"sys_id\": \"b69d6ee2c3e22210d277befdd401314d\", \"sys_updated_by\": \"integration.account\", \"sys_created_on\": \"2025-07-08 10:30:15\", \"name\": \"Testing POC Update Set\", \"description\": \"this is testing of poc\", \"state\": \"in progress\", \"sys_updated_on\": \"2025-07-08 10:30:15\", \"sys_created_by\": \"integration.account\"}, {\"sys_id\": \"f2d4aa3b78a062104f3459503ff42ad8\", \"sys_updated_by\": \"system\", \"sys_created_on\": \"2025-04-03 20:58:52\", \"name\": \"Default\", \"description\": \"Automatically created by the system\", \"state\": \"in progress\", \"sys_updated_on\": \"2025-04-03 20:58:52\", \"sys_created_by\": \"system\"}, {\"sys_id\": \"f34e42bf78a022104f3459503ff42ae0\", \"sys_updated_by\": \"admin\", \"sys_created_on\": \"2025-04-03 19:20:22\", \"name\": \"Default\", \"description\": \"Automatically created by the system\", \"state\": \"in progress\", \"sys_updated_on\": \"2025-07-08 09:55:27\", \"sys_created_by\": \"system\"}]}",
+              "additional_kwargs": {},
+              "response_metadata": {},
+              "type": "tool",
+              "name": "GetsAnyDetail",
+              "id": null,
+              "tool_call_id": "call_9698aSz9YsR5nKR88BdRFsk4",
+              "artifact": null,
+              "status": "success"
+            },
+            {
+              "content": "Here is the list of all update sets along with their details:\n\n1. **Update Set Name:** New Update Set\n   - **Sys ID:** 1f5daa26c3622210d277befdd40131b3\n   - **Description:** Description of the update set\n   - **State:** In Progress\n   - **Created On:** 2025-07-08 10:29:12\n   - **Updated On:** 2025-07",
+              "additional_kwargs": {},
+              "response_metadata": {},
+              "type": "ai",
+              "name": null,
+              "id": null,
+              "example": false,
+              "tool_calls": [],
+              "invalid_tool_calls": [],
+              "usage_metadata": null
+            }
+          ],
+          "previous_messages": [
+            {
+              "content": "\n        You are ServiceNow Agentic AI, an expert assistant for ServiceNow integration and automation. You understand the ServiceNow data model, tables, and APIs, and you can guide users through creating, retrieving, and updating records.\n        You have access to a set of tools. Your job is to decide when to call them, gather all necessary inputs, and confirm with the user before taking final action.\n        \n        General Rules:\n        Carefully understand the user\u2019s query.\n        Break it down into clear, logical actions.\n        If you suspect the request might be invalid or ambiguous, immediately highlight it and ask for clarification.\n        Always verify the table name and payload for correctness.\n        Ask for any required information if it is missing.\n\n        Tool Usage:\n        For GET requests, use the createAPIParam tool to determine the table name.\n        For retrieving details, use the GetsAnyDetail tool.\n        For creating a new record, use the createEndPointPayload tool to get the table name and payload, and then the CreateANewRecord_in_SNOW tool to create it.\n        Always select the appropriate tool based on the user\u2019s intent\n\n        Interaction Guide :\n        Always confirm the final action with the user before executing it. Clearly present the plan and ask: \u201cDo you want me to proceed?\u201d\n        If you make a mistake (e.g., wrong table or payload), apologize and correct yourself.\n        If a tool call fails:\n            Analyze whether the input you provided was correct.\n            If it was incorrect, fix it and try again.\n            If it fails again, inform the user about the issue honestly and suggest next step\n        \n        Behaviour Example:\n        If the user says: \u201cCreate an incident,\u201d you should respond:\n        -\u201cSure! I\u2019ll help you create an Incident. Please provide the following details: Short Description, Description, Caller, and Category (if any).\u201d\n\n        If the user says \u201cGet details from desk_message,\u201d and the table doesn\u2019t exist:\n        -\u201cI couldn\u2019t find a table called desk_message in ServiceNow. Could you confirm the correct table name? Did you mean rest_message perhaps?\u201d\n\nNote - If you error in getting tool output. analyze if the input you provided is correct. Fix it and run it again. If still not working - inform user about the issue.\n        \n",
+              "additional_kwargs": {},
+              "response_metadata": {},
+              "type": "system",
+              "name": null,
+              "id": null
+            },
+            {
+              "content": "Give me list of all update sets in table with all possible details",
+              "additional_kwargs": {},
+              "response_metadata": {},
+              "type": "human",
+              "name": null,
+              "id": null,
+              "example": false
+            },
+            {
+              "content": "content='/sys_update_set?sysparm_query=&sysparm_fields=sys_id,name,state,sys_created_on,sys_updated_on,sys_created_by,sys_updated_by,description&sysparm_limit=1000' additional_kwargs={} response_metadata={}",
+              "additional_kwargs": {},
+              "response_metadata": {},
+              "type": "tool",
+              "name": "createAPIParam",
+              "id": null,
+              "tool_call_id": "call_ytCKhea0xG6x1OjidoMatX0n",
+              "artifact": null,
+              "status": "success"
+            },
+            {
+              "content": "{\"result\": [{\"sys_id\": \"1f5daa26c3622210d277befdd40131b3\", \"sys_updated_by\": \"integration.account\", \"sys_created_on\": \"2025-07-08 10:29:12\", \"name\": \"New Update Set\", \"description\": \"Description of the update set\", \"state\": \"in progress\", \"sys_updated_on\": \"2025-07-08 15:01:07\", \"sys_created_by\": \"integration.account\"}, {\"sys_id\": \"5e9b6feec3e62210d277befdd4013121\", \"sys_updated_by\": \"integration.account\", \"sys_created_on\": \"2025-07-08 15:01:07\", \"name\": \"UpdateSet from StreamLit\", \"description\": \"Update set created from streamlit.\", \"state\": \"in progress\", \"sys_updated_on\": \"2025-07-08 15:01:07\", \"sys_created_by\": \"integration.account\"}, {\"sys_id\": \"7de90a1ac3562210d277befdd40131ba\", \"sys_updated_by\": \"system\", \"sys_created_on\": \"2025-06-25 03:00:06\", \"name\": \"Default\", \"description\": \"Automatically created by the system\", \"state\": \"in progress\", \"sys_updated_on\": \"2025-06-25 03:00:06\", \"sys_created_by\": \"system\"}, {\"sys_id\": \"b69d6ee2c3e22210d277befdd401314d\", \"sys_updated_by\": \"integration.account\", \"sys_created_on\": \"2025-07-08 10:30:15\", \"name\": \"Testing POC Update Set\", \"description\": \"this is testing of poc\", \"state\": \"in progress\", \"sys_updated_on\": \"2025-07-08 10:30:15\", \"sys_created_by\": \"integration.account\"}, {\"sys_id\": \"f2d4aa3b78a062104f3459503ff42ad8\", \"sys_updated_by\": \"system\", \"sys_created_on\": \"2025-04-03 20:58:52\", \"name\": \"Default\", \"description\": \"Automatically created by the system\", \"state\": \"in progress\", \"sys_updated_on\": \"2025-04-03 20:58:52\", \"sys_created_by\": \"system\"}, {\"sys_id\": \"f34e42bf78a022104f3459503ff42ae0\", \"sys_updated_by\": \"admin\", \"sys_created_on\": \"2025-04-03 19:20:22\", \"name\": \"Default\", \"description\": \"Automatically created by the system\", \"state\": \"in progress\", \"sys_updated_on\": \"2025-07-08 09:55:27\", \"sys_created_by\": \"system\"}]}",
+              "additional_kwargs": {},
+              "response_metadata": {},
+              "type": "tool",
+              "name": "GetsAnyDetail",
+              "id": null,
+              "tool_call_id": "call_9698aSz9YsR5nKR88BdRFsk4",
+              "artifact": null,
+              "status": "success"
+            }
+          ]
+        }
+      },
+      {
+        "role": "user",
+        "content": "show me this in table format"
+      },
+      {
+        "role": "bot",
+        "content": "Here's the information about the update sets presented in a table format:\n\n| Sys ID                                | Name                        | Description                          | State       | Created On           | Updated On           | Created By         | Updated By        |\n|---------------------------------------|-----------------------------|--------------------------------------|-------------|----------------------|----------------------|--------------------|-------------------|\n| 1f5daa26c3622210d277befdd40131b3    | New Update Set              | Description of the update set       ",
+        "full_response": {
+          "messages": [
+            {
+              "content": "\n        You are ServiceNow Agentic AI, an expert assistant for ServiceNow integration and automation. You understand the ServiceNow data model, tables, and APIs, and you can guide users through creating, retrieving, and updating records.\n        You have access to a set of tools. Your job is to decide when to call them, gather all necessary inputs, and confirm with the user before taking final action.\n        \n        General Rules:\n        Carefully understand the user\u2019s query.\n        Break it down into clear, logical actions.\n        If you suspect the request might be invalid or ambiguous, immediately highlight it and ask for clarification.\n        Always verify the table name and payload for correctness.\n        Ask for any required information if it is missing.\n\n        Tool Usage:\n        For GET requests, use the createAPIParam tool to determine the table name.\n        For retrieving details, use the GetsAnyDetail tool.\n        For creating a new record, use the createEndPointPayload tool to get the table name and payload, and then the CreateANewRecord_in_SNOW tool to create it.\n        Always select the appropriate tool based on the user\u2019s intent\n\n        Interaction Guide :\n        Always confirm the final action with the user before executing it. Clearly present the plan and ask: \u201cDo you want me to proceed?\u201d\n        If you make a mistake (e.g., wrong table or payload), apologize and correct yourself.\n        If a tool call fails:\n            Analyze whether the input you provided was correct.\n            If it was incorrect, fix it and try again.\n            If it fails again, inform the user about the issue honestly and suggest next step\n        \n        Behaviour Example:\n        If the user says: \u201cCreate an incident,\u201d you should respond:\n        -\u201cSure! I\u2019ll help you create an Incident. Please provide the following details: Short Description, Description, Caller, and Category (if any).\u201d\n\n        If the user says \u201cGet details from desk_message,\u201d and the table doesn\u2019t exist:\n        -\u201cI couldn\u2019t find a table called desk_message in ServiceNow. Could you confirm the correct table name? Did you mean rest_message perhaps?\u201d\n\nNote - If you error in getting tool output. analyze if the input you provided is correct. Fix it and run it again. If still not working - inform user about the issue.\n        \n",
+              "additional_kwargs": {},
+              "response_metadata": {},
+              "type": "system",
+              "name": null,
+              "id": null
+            },
+            {
+              "content": "Give me list of all update sets in table with all possible details",
+              "additional_kwargs": {},
+              "response_metadata": {},
+              "type": "human",
+              "name": null,
+              "id": null,
+              "example": false
+            },
+            {
+              "content": "content='/sys_update_set?sysparm_query=&sysparm_fields=sys_id,name,state,sys_created_on,sys_updated_on,sys_created_by,sys_updated_by,description&sysparm_limit=1000' additional_kwargs={} response_metadata={}",
+              "additional_kwargs": {},
+              "response_metadata": {},
+              "type": "tool",
+              "name": "createAPIParam",
+              "id": null,
+              "tool_call_id": "call_ytCKhea0xG6x1OjidoMatX0n",
+              "artifact": null,
+              "status": "success"
+            },
+            {
+              "content": "{\"result\": [{\"sys_id\": \"1f5daa26c3622210d277befdd40131b3\", \"sys_updated_by\": \"integration.account\", \"sys_created_on\": \"2025-07-08 10:29:12\", \"name\": \"New Update Set\", \"description\": \"Description of the update set\", \"state\": \"in progress\", \"sys_updated_on\": \"2025-07-08 15:01:07\", \"sys_created_by\": \"integration.account\"}, {\"sys_id\": \"5e9b6feec3e62210d277befdd4013121\", \"sys_updated_by\": \"integration.account\", \"sys_created_on\": \"2025-07-08 15:01:07\", \"name\": \"UpdateSet from StreamLit\", \"description\": \"Update set created from streamlit.\", \"state\": \"in progress\", \"sys_updated_on\": \"2025-07-08 15:01:07\", \"sys_created_by\": \"integration.account\"}, {\"sys_id\": \"7de90a1ac3562210d277befdd40131ba\", \"sys_updated_by\": \"system\", \"sys_created_on\": \"2025-06-25 03:00:06\", \"name\": \"Default\", \"description\": \"Automatically created by the system\", \"state\": \"in progress\", \"sys_updated_on\": \"2025-06-25 03:00:06\", \"sys_created_by\": \"system\"}, {\"sys_id\": \"b69d6ee2c3e22210d277befdd401314d\", \"sys_updated_by\": \"integration.account\", \"sys_created_on\": \"2025-07-08 10:30:15\", \"name\": \"Testing POC Update Set\", \"description\": \"this is testing of poc\", \"state\": \"in progress\", \"sys_updated_on\": \"2025-07-08 10:30:15\", \"sys_created_by\": \"integration.account\"}, {\"sys_id\": \"f2d4aa3b78a062104f3459503ff42ad8\", \"sys_updated_by\": \"system\", \"sys_created_on\": \"2025-04-03 20:58:52\", \"name\": \"Default\", \"description\": \"Automatically created by the system\", \"state\": \"in progress\", \"sys_updated_on\": \"2025-04-03 20:58:52\", \"sys_created_by\": \"system\"}, {\"sys_id\": \"f34e42bf78a022104f3459503ff42ae0\", \"sys_updated_by\": \"admin\", \"sys_created_on\": \"2025-04-03 19:20:22\", \"name\": \"Default\", \"description\": \"Automatically created by the system\", \"state\": \"in progress\", \"sys_updated_on\": \"2025-07-08 09:55:27\", \"sys_created_by\": \"system\"}]}",
+              "additional_kwargs": {},
+              "response_metadata": {},
+              "type": "tool",
+              "name": "GetsAnyDetail",
+              "id": null,
+              "tool_call_id": "call_9698aSz9YsR5nKR88BdRFsk4",
+              "artifact": null,
+              "status": "success"
+            },
+            {
+              "content": "Here is the list of all update sets along with their details:\n\n1. **Update Set Name:** New Update Set\n   - **Sys ID:** 1f5daa26c3622210d277befdd40131b3\n   - **Description:** Description of the update set\n   - **State:** In Progress\n   - **Created On:** 2025-07-08 10:29:12\n   - **Updated On:** 2025-07",
+              "additional_kwargs": {},
+              "response_metadata": {},
+              "type": "ai",
+              "name": null,
+              "id": null,
+              "example": false,
+              "tool_calls": [],
+              "invalid_tool_calls": [],
+              "usage_metadata": null
+            },
+            {
+              "content": "show me this in table format",
+              "additional_kwargs": {},
+              "response_metadata": {},
+              "type": "human",
+              "name": null,
+              "id": null,
+              "example": false
+            },
+            {
+              "content": "Here's the information about the update sets presented in a table format:\n\n| Sys ID                                | Name                        | Description                          | State       | Created On           | Updated On           | Created By         | Updated By        |\n|---------------------------------------|-----------------------------|--------------------------------------|-------------|----------------------|----------------------|--------------------|-------------------|\n| 1f5daa26c3622210d277befdd40131b3    | New Update Set              | Description of the update set       ",
+              "additional_kwargs": {},
+              "response_metadata": {},
+              "type": "ai",
+              "name": null,
+              "id": null,
+              "example": false,
+              "tool_calls": [],
+              "invalid_tool_calls": [],
+              "usage_metadata": null
+            }
+          ],
+          "previous_messages": [
+            {
+              "content": "\n        You are ServiceNow Agentic AI, an expert assistant for ServiceNow integration and automation. You understand the ServiceNow data model, tables, and APIs, and you can guide users through creating, retrieving, and updating records.\n        You have access to a set of tools. Your job is to decide when to call them, gather all necessary inputs, and confirm with the user before taking final action.\n        \n        General Rules:\n        Carefully understand the user\u2019s query.\n        Break it down into clear, logical actions.\n        If you suspect the request might be invalid or ambiguous, immediately highlight it and ask for clarification.\n        Always verify the table name and payload for correctness.\n        Ask for any required information if it is missing.\n\n        Tool Usage:\n        For GET requests, use the createAPIParam tool to determine the table name.\n        For retrieving details, use the GetsAnyDetail tool.\n        For creating a new record, use the createEndPointPayload tool to get the table name and payload, and then the CreateANewRecord_in_SNOW tool to create it.\n        Always select the appropriate tool based on the user\u2019s intent\n\n        Interaction Guide :\n        Always confirm the final action with the user before executing it. Clearly present the plan and ask: \u201cDo you want me to proceed?\u201d\n        If you make a mistake (e.g., wrong table or payload), apologize and correct yourself.\n        If a tool call fails:\n            Analyze whether the input you provided was correct.\n            If it was incorrect, fix it and try again.\n            If it fails again, inform the user about the issue honestly and suggest next step\n        \n        Behaviour Example:\n        If the user says: \u201cCreate an incident,\u201d you should respond:\n        -\u201cSure! I\u2019ll help you create an Incident. Please provide the following details: Short Description, Description, Caller, and Category (if any).\u201d\n\n        If the user says \u201cGet details from desk_message,\u201d and the table doesn\u2019t exist:\n        -\u201cI couldn\u2019t find a table called desk_message in ServiceNow. Could you confirm the correct table name? Did you mean rest_message perhaps?\u201d\n\nNote - If you error in getting tool output. analyze if the input you provided is correct. Fix it and run it again. If still not working - inform user about the issue.\n        \n",
+              "additional_kwargs": {},
+              "response_metadata": {},
+              "type": "system",
+              "name": null,
+              "id": null
+            },
+            {
+              "content": "Give me list of all update sets in table with all possible details",
+              "additional_kwargs": {},
+              "response_metadata": {},
+              "type": "human",
+              "name": null,
+              "id": null,
+              "example": false
+            },
+            {
+              "content": "content='/sys_update_set?sysparm_query=&sysparm_fields=sys_id,name,state,sys_created_on,sys_updated_on,sys_created_by,sys_updated_by,description&sysparm_limit=1000' additional_kwargs={} response_metadata={}",
+              "additional_kwargs": {},
+              "response_metadata": {},
+              "type": "tool",
+              "name": "createAPIParam",
+              "id": null,
+              "tool_call_id": "call_ytCKhea0xG6x1OjidoMatX0n",
+              "artifact": null,
+              "status": "success"
+            },
+            {
+              "content": "{\"result\": [{\"sys_id\": \"1f5daa26c3622210d277befdd40131b3\", \"sys_updated_by\": \"integration.account\", \"sys_created_on\": \"2025-07-08 10:29:12\", \"name\": \"New Update Set\", \"description\": \"Description of the update set\", \"state\": \"in progress\", \"sys_updated_on\": \"2025-07-08 15:01:07\", \"sys_created_by\": \"integration.account\"}, {\"sys_id\": \"5e9b6feec3e62210d277befdd4013121\", \"sys_updated_by\": \"integration.account\", \"sys_created_on\": \"2025-07-08 15:01:07\", \"name\": \"UpdateSet from StreamLit\", \"description\": \"Update set created from streamlit.\", \"state\": \"in progress\", \"sys_updated_on\": \"2025-07-08 15:01:07\", \"sys_created_by\": \"integration.account\"}, {\"sys_id\": \"7de90a1ac3562210d277befdd40131ba\", \"sys_updated_by\": \"system\", \"sys_created_on\": \"2025-06-25 03:00:06\", \"name\": \"Default\", \"description\": \"Automatically created by the system\", \"state\": \"in progress\", \"sys_updated_on\": \"2025-06-25 03:00:06\", \"sys_created_by\": \"system\"}, {\"sys_id\": \"b69d6ee2c3e22210d277befdd401314d\", \"sys_updated_by\": \"integration.account\", \"sys_created_on\": \"2025-07-08 10:30:15\", \"name\": \"Testing POC Update Set\", \"description\": \"this is testing of poc\", \"state\": \"in progress\", \"sys_updated_on\": \"2025-07-08 10:30:15\", \"sys_created_by\": \"integration.account\"}, {\"sys_id\": \"f2d4aa3b78a062104f3459503ff42ad8\", \"sys_updated_by\": \"system\", \"sys_created_on\": \"2025-04-03 20:58:52\", \"name\": \"Default\", \"description\": \"Automatically created by the system\", \"state\": \"in progress\", \"sys_updated_on\": \"2025-04-03 20:58:52\", \"sys_created_by\": \"system\"}, {\"sys_id\": \"f34e42bf78a022104f3459503ff42ae0\", \"sys_updated_by\": \"admin\", \"sys_created_on\": \"2025-04-03 19:20:22\", \"name\": \"Default\", \"description\": \"Automatically created by the system\", \"state\": \"in progress\", \"sys_updated_on\": \"2025-07-08 09:55:27\", \"sys_created_by\": \"system\"}]}",
+              "additional_kwargs": {},
+              "response_metadata": {},
+              "type": "tool",
+              "name": "GetsAnyDetail",
+              "id": null,
+              "tool_call_id": "call_9698aSz9YsR5nKR88BdRFsk4",
+              "artifact": null,
+              "status": "success"
+            },
+            {
+              "content": "Here is the list of all update sets along with their details:\n\n1. **Update Set Name:** New Update Set\n   - **Sys ID:** 1f5daa26c3622210d277befdd40131b3\n   - **Description:** Description of the update set\n   - **State:** In Progress\n   - **Created On:** 2025-07-08 10:29:12\n   - **Updated On:** 2025-07",
+              "additional_kwargs": {},
+              "response_metadata": {},
+              "type": "ai",
+              "name": null,
+              "id": null,
+              "example": false,
+              "tool_calls": [],
+              "invalid_tool_calls": [],
+              "usage_metadata": null
+            },
+            {
+              "content": "show me this in table format",
+              "additional_kwargs": {},
+              "response_metadata": {},
+              "type": "human",
+              "name": null,
+              "id": null,
+              "example": false
+            }
+          ]
+        }
+      },
+      {
+        "role": "user",
+        "content": "try again with all the details. including parent set name"
+      },
+      {
+        "role": "bot",
+        "content": "Here is the updated list of all update sets along with their details, including the parent set name, presented in a table format:\n\n| Sys ID                                | Name                        | Parent Set Name                     | Description                          | State       | Created On           | Updated On           | Created By         | Updated By        |\n|---------------------------------------|-----------------------------|-------------------------------------|--------------------------------------|-------------|----------------------|----------------------|--------------------|-------------------|\n| 7de90a1ac3562210d277befdd40131ba    | Default                     |                                     | Automatically created by the system  | In Progress | 2025-06-25 03:00:06  | 2025-06-25 03:00:06  | system             | system            |\n| f2d4aa3b78a062104f3459503ff42ad8    | Default                     |                                     | Automatically created by the system  | In Progress | 2025-04-03 20:58:52  | 2025-04-03 20:58:52  | system             | system            |\n| f34e42bf78a022104f3459503ff42ae0    | Default                     |                                     | Automatically created by the system  | In Progress | 2025-04-03 19:20:22  | 2025-07-08 09:55:27  | system             | admin             |\n| 1f5daa26c3622210d277befdd40131b3    | New Update Set              |                                     | Description of the update set       | In Progress | 2025-07-08 10:29:12  | 2025-07-08 15:01:07  | integration.account | integration.account|\n| b69d6ee2c3e22210d277befdd401314d    | Testing POC Update Set      |                                     | this is testing of poc               | In Progress | 2025-07-08 10:30:15  | 2025-07-08 10:30:15  | integration.account | integration.account|\n| 5e9b6feec3e62210d277befdd4013121    | UpdateSet from StreamLit    | [Link](https://dev185303.service-now.com/api/now/table/sys_update_set/1f5daa26c3622210d277befdd40131b3) | Update set created from streamlit.   | In Progress | 2025-07-08 15:01:07  | 2025-07-08 15:01:07  | integration.account | integration.account|\n\nIf you need any further details or modifications, feel free to ask!",
+        "full_response": {
+          "messages": [
+            {
+              "content": "\n        You are ServiceNow Agentic AI, an expert assistant for ServiceNow integration and automation. You understand the ServiceNow data model, tables, and APIs, and you can guide users through creating, retrieving, and updating records.\n        You have access to a set of tools. Your job is to decide when to call them, gather all necessary inputs, and confirm with the user before taking final action.\n        \n        General Rules:\n        Carefully understand the user\u2019s query.\n        Break it down into clear, logical actions.\n        If you suspect the request might be invalid or ambiguous, immediately highlight it and ask for clarification.\n        Always verify the table name and payload for correctness.\n        Ask for any required information if it is missing.\n\n        Tool Usage:\n        For GET requests, use the createAPIParam tool to determine the table name.\n        For retrieving details, use the GetsAnyDetail tool.\n        For creating a new record, use the createEndPointPayload tool to get the table name and payload, and then the CreateANewRecord_in_SNOW tool to create it.\n        Always select the appropriate tool based on the user\u2019s intent\n\n        Interaction Guide :\n        Always confirm the final action with the user before executing it. Clearly present the plan and ask: \u201cDo you want me to proceed?\u201d\n        If you make a mistake (e.g., wrong table or payload), apologize and correct yourself.\n        If a tool call fails:\n            Analyze whether the input you provided was correct.\n            If it was incorrect, fix it and try again.\n            If it fails again, inform the user about the issue honestly and suggest next step\n        \n        Behaviour Example:\n        If the user says: \u201cCreate an incident,\u201d you should respond:\n        -\u201cSure! I\u2019ll help you create an Incident. Please provide the following details: Short Description, Description, Caller, and Category (if any).\u201d\n\n        If the user says \u201cGet details from desk_message,\u201d and the table doesn\u2019t exist:\n        -\u201cI couldn\u2019t find a table called desk_message in ServiceNow. Could you confirm the correct table name? Did you mean rest_message perhaps?\u201d\n\nNote - If you error in getting tool output. analyze if the input you provided is correct. Fix it and run it again. If still not working - inform user about the issue.\n        \n",
+              "additional_kwargs": {},
+              "response_metadata": {},
+              "type": "system",
+              "name": null,
+              "id": null
+            },
+            {
+              "content": "Give me list of all update sets in table with all possible details",
+              "additional_kwargs": {},
+              "response_metadata": {},
+              "type": "human",
+              "name": null,
+              "id": null,
+              "example": false
+            },
+            {
+              "content": "content='/sys_update_set?sysparm_query=&sysparm_fields=sys_id,name,state,sys_created_on,sys_updated_on,sys_created_by,sys_updated_by,description&sysparm_limit=1000' additional_kwargs={} response_metadata={}",
+              "additional_kwargs": {},
+              "response_metadata": {},
+              "type": "tool",
+              "name": "createAPIParam",
+              "id": null,
+              "tool_call_id": "call_ytCKhea0xG6x1OjidoMatX0n",
+              "artifact": null,
+              "status": "success"
+            },
+            {
+              "content": "{\"result\": [{\"sys_id\": \"1f5daa26c3622210d277befdd40131b3\", \"sys_updated_by\": \"integration.account\", \"sys_created_on\": \"2025-07-08 10:29:12\", \"name\": \"New Update Set\", \"description\": \"Description of the update set\", \"state\": \"in progress\", \"sys_updated_on\": \"2025-07-08 15:01:07\", \"sys_created_by\": \"integration.account\"}, {\"sys_id\": \"5e9b6feec3e62210d277befdd4013121\", \"sys_updated_by\": \"integration.account\", \"sys_created_on\": \"2025-07-08 15:01:07\", \"name\": \"UpdateSet from StreamLit\", \"description\": \"Update set created from streamlit.\", \"state\": \"in progress\", \"sys_updated_on\": \"2025-07-08 15:01:07\", \"sys_created_by\": \"integration.account\"}, {\"sys_id\": \"7de90a1ac3562210d277befdd40131ba\", \"sys_updated_by\": \"system\", \"sys_created_on\": \"2025-06-25 03:00:06\", \"name\": \"Default\", \"description\": \"Automatically created by the system\", \"state\": \"in progress\", \"sys_updated_on\": \"2025-06-25 03:00:06\", \"sys_created_by\": \"system\"}, {\"sys_id\": \"b69d6ee2c3e22210d277befdd401314d\", \"sys_updated_by\": \"integration.account\", \"sys_created_on\": \"2025-07-08 10:30:15\", \"name\": \"Testing POC Update Set\", \"description\": \"this is testing of poc\", \"state\": \"in progress\", \"sys_updated_on\": \"2025-07-08 10:30:15\", \"sys_created_by\": \"integration.account\"}, {\"sys_id\": \"f2d4aa3b78a062104f3459503ff42ad8\", \"sys_updated_by\": \"system\", \"sys_created_on\": \"2025-04-03 20:58:52\", \"name\": \"Default\", \"description\": \"Automatically created by the system\", \"state\": \"in progress\", \"sys_updated_on\": \"2025-04-03 20:58:52\", \"sys_created_by\": \"system\"}, {\"sys_id\": \"f34e42bf78a022104f3459503ff42ae0\", \"sys_updated_by\": \"admin\", \"sys_created_on\": \"2025-04-03 19:20:22\", \"name\": \"Default\", \"description\": \"Automatically created by the system\", \"state\": \"in progress\", \"sys_updated_on\": \"2025-07-08 09:55:27\", \"sys_created_by\": \"system\"}]}",
+              "additional_kwargs": {},
+              "response_metadata": {},
+              "type": "tool",
+              "name": "GetsAnyDetail",
+              "id": null,
+              "tool_call_id": "call_9698aSz9YsR5nKR88BdRFsk4",
+              "artifact": null,
+              "status": "success"
+            },
+            {
+              "content": "Here is the list of all update sets along with their details:\n\n1. **Update Set Name:** New Update Set\n   - **Sys ID:** 1f5daa26c3622210d277befdd40131b3\n   - **Description:** Description of the update set\n   - **State:** In Progress\n   - **Created On:** 2025-07-08 10:29:12\n   - **Updated On:** 2025-07",
+              "additional_kwargs": {},
+              "response_metadata": {},
+              "type": "ai",
+              "name": null,
+              "id": null,
+              "example": false,
+              "tool_calls": [],
+              "invalid_tool_calls": [],
+              "usage_metadata": null
+            },
+            {
+              "content": "show me this in table format",
+              "additional_kwargs": {},
+              "response_metadata": {},
+              "type": "human",
+              "name": null,
+              "id": null,
+              "example": false
+            },
+            {
+              "content": "Here's the information about the update sets presented in a table format:\n\n| Sys ID                                | Name                        | Description                          | State       | Created On           | Updated On           | Created By         | Updated By        |\n|---------------------------------------|-----------------------------|--------------------------------------|-------------|----------------------|----------------------|--------------------|-------------------|\n| 1f5daa26c3622210d277befdd40131b3    | New Update Set              | Description of the update set       ",
+              "additional_kwargs": {},
+              "response_metadata": {},
+              "type": "ai",
+              "name": null,
+              "id": null,
+              "example": false,
+              "tool_calls": [],
+              "invalid_tool_calls": [],
+              "usage_metadata": null
+            },
+            {
+              "content": "try again with all the details. including parent set name",
+              "additional_kwargs": {},
+              "response_metadata": {},
+              "type": "human",
+              "name": null,
+              "id": null,
+              "example": false
+            },
+            {
+              "content": "content='/sys_update_set?sysparm_query=ORDERBYname&sysparm_fields=sys_id,name,parent,sys_created_on,sys_updated_on,sys_created_by,sys_updated_by,description&sysparm_limit=1000' additional_kwargs={} response_metadata={}",
+              "additional_kwargs": {},
+              "response_metadata": {},
+              "type": "tool",
+              "name": "createAPIParam",
+              "id": null,
+              "tool_call_id": "call_g4t2NhYk4eqyDKbS9Gs4haTu",
+              "artifact": null,
+              "status": "success"
+            },
+            {
+              "content": "{\"result\": [{\"sys_id\": \"7de90a1ac3562210d277befdd40131ba\", \"parent\": \"\", \"sys_updated_by\": \"system\", \"sys_created_on\": \"2025-06-25 03:00:06\", \"name\": \"Default\", \"description\": \"Automatically created by the system\", \"sys_updated_on\": \"2025-06-25 03:00:06\", \"sys_created_by\": \"system\"}, {\"sys_id\": \"f2d4aa3b78a062104f3459503ff42ad8\", \"parent\": \"\", \"sys_updated_by\": \"system\", \"sys_created_on\": \"2025-04-03 20:58:52\", \"name\": \"Default\", \"description\": \"Automatically created by the system\", \"sys_updated_on\": \"2025-04-03 20:58:52\", \"sys_created_by\": \"system\"}, {\"sys_id\": \"f34e42bf78a022104f3459503ff42ae0\", \"parent\": \"\", \"sys_updated_by\": \"admin\", \"sys_created_on\": \"2025-04-03 19:20:22\", \"name\": \"Default\", \"description\": \"Automatically created by the system\", \"sys_updated_on\": \"2025-07-08 09:55:27\", \"sys_created_by\": \"system\"}, {\"sys_id\": \"1f5daa26c3622210d277befdd40131b3\", \"parent\": \"\", \"sys_updated_by\": \"integration.account\", \"sys_created_on\": \"2025-07-08 10:29:12\", \"name\": \"New Update Set\", \"description\": \"Description of the update set\", \"sys_updated_on\": \"2025-07-08 15:01:07\", \"sys_created_by\": \"integration.account\"}, {\"sys_id\": \"b69d6ee2c3e22210d277befdd401314d\", \"parent\": \"\", \"sys_updated_by\": \"integration.account\", \"sys_created_on\": \"2025-07-08 10:30:15\", \"name\": \"Testing POC Update Set\", \"description\": \"this is testing of poc\", \"sys_updated_on\": \"2025-07-08 10:30:15\", \"sys_created_by\": \"integration.account\"}, {\"sys_id\": \"5e9b6feec3e62210d277befdd4013121\", \"parent\": {\"link\": \"https://dev185303.service-now.com/api/now/table/sys_update_set/1f5daa26c3622210d277befdd40131b3\", \"value\": \"1f5daa26c3622210d277befdd40131b3\"}, \"sys_updated_by\": \"integration.account\", \"sys_created_on\": \"2025-07-08 15:01:07\", \"name\": \"UpdateSet from StreamLit\", \"description\": \"Update set created from streamlit.\", \"sys_updated_on\": \"2025-07-08 15:01:07\", \"sys_created_by\": \"integration.account\"}]}",
+              "additional_kwargs": {},
+              "response_metadata": {},
+              "type": "tool",
+              "name": "GetsAnyDetail",
+              "id": null,
+              "tool_call_id": "call_XnlzuntJ8361vkqZ0X8DGfXl",
+              "artifact": null,
+              "status": "success"
+            },
+            {
+              "content": "Here is the updated list of all update sets along with their details, including the parent set name, presented in a table format:\n\n| Sys ID                                | Name                        | Parent Set Name                     | Description                          | State       | Created On           | Updated On           | Created By         | Updated By        |\n|---------------------------------------|-----------------------------|-------------------------------------|--------------------------------------|-------------|----------------------|----------------------|--------------------|-------------------|\n| 7de90a1ac3562210d277befdd40131ba    | Default                     |                                     | Automatically created by the system  | In Progress | 2025-06-25 03:00:06  | 2025-06-25 03:00:06  | system             | system            |\n| f2d4aa3b78a062104f3459503ff42ad8    | Default                     |                                     | Automatically created by the system  | In Progress | 2025-04-03 20:58:52  | 2025-04-03 20:58:52  | system             | system            |\n| f34e42bf78a022104f3459503ff42ae0    | Default                     |                                     | Automatically created by the system  | In Progress | 2025-04-03 19:20:22  | 2025-07-08 09:55:27  | system             | admin             |\n| 1f5daa26c3622210d277befdd40131b3    | New Update Set              |                                     | Description of the update set       | In Progress | 2025-07-08 10:29:12  | 2025-07-08 15:01:07  | integration.account | integration.account|\n| b69d6ee2c3e22210d277befdd401314d    | Testing POC Update Set      |                                     | this is testing of poc               | In Progress | 2025-07-08 10:30:15  | 2025-07-08 10:30:15  | integration.account | integration.account|\n| 5e9b6feec3e62210d277befdd4013121    | UpdateSet from StreamLit    | [Link](https://dev185303.service-now.com/api/now/table/sys_update_set/1f5daa26c3622210d277befdd40131b3) | Update set created from streamlit.   | In Progress | 2025-07-08 15:01:07  | 2025-07-08 15:01:07  | integration.account | integration.account|\n\nIf you need any further details or modifications, feel free to ask!",
+              "additional_kwargs": {},
+              "response_metadata": {},
+              "type": "ai",
+              "name": null,
+              "id": null,
+              "example": false,
+              "tool_calls": [],
+              "invalid_tool_calls": [],
+              "usage_metadata": null
+            }
+          ],
+          "previous_messages": [
+            {
+              "content": "\n        You are ServiceNow Agentic AI, an expert assistant for ServiceNow integration and automation. You understand the ServiceNow data model, tables, and APIs, and you can guide users through creating, retrieving, and updating records.\n        You have access to a set of tools. Your job is to decide when to call them, gather all necessary inputs, and confirm with the user before taking final action.\n        \n        General Rules:\n        Carefully understand the user\u2019s query.\n        Break it down into clear, logical actions.\n        If you suspect the request might be invalid or ambiguous, immediately highlight it and ask for clarification.\n        Always verify the table name and payload for correctness.\n        Ask for any required information if it is missing.\n\n        Tool Usage:\n        For GET requests, use the createAPIParam tool to determine the table name.\n        For retrieving details, use the GetsAnyDetail tool.\n        For creating a new record, use the createEndPointPayload tool to get the table name and payload, and then the CreateANewRecord_in_SNOW tool to create it.\n        Always select the appropriate tool based on the user\u2019s intent\n\n        Interaction Guide :\n        Always confirm the final action with the user before executing it. Clearly present the plan and ask: \u201cDo you want me to proceed?\u201d\n        If you make a mistake (e.g., wrong table or payload), apologize and correct yourself.\n        If a tool call fails:\n            Analyze whether the input you provided was correct.\n            If it was incorrect, fix it and try again.\n            If it fails again, inform the user about the issue honestly and suggest next step\n        \n        Behaviour Example:\n        If the user says: \u201cCreate an incident,\u201d you should respond:\n        -\u201cSure! I\u2019ll help you create an Incident. Please provide the following details: Short Description, Description, Caller, and Category (if any).\u201d\n\n        If the user says \u201cGet details from desk_message,\u201d and the table doesn\u2019t exist:\n        -\u201cI couldn\u2019t find a table called desk_message in ServiceNow. Could you confirm the correct table name? Did you mean rest_message perhaps?\u201d\n\nNote - If you error in getting tool output. analyze if the input you provided is correct. Fix it and run it again. If still not working - inform user about the issue.\n        \n",
+              "additional_kwargs": {},
+              "response_metadata": {},
+              "type": "system",
+              "name": null,
+              "id": null
+            },
+            {
+              "content": "Give me list of all update sets in table with all possible details",
+              "additional_kwargs": {},
+              "response_metadata": {},
+              "type": "human",
+              "name": null,
+              "id": null,
+              "example": false
+            },
+            {
+              "content": "content='/sys_update_set?sysparm_query=&sysparm_fields=sys_id,name,state,sys_created_on,sys_updated_on,sys_created_by,sys_updated_by,description&sysparm_limit=1000' additional_kwargs={} response_metadata={}",
+              "additional_kwargs": {},
+              "response_metadata": {},
+              "type": "tool",
+              "name": "createAPIParam",
+              "id": null,
+              "tool_call_id": "call_ytCKhea0xG6x1OjidoMatX0n",
+              "artifact": null,
+              "status": "success"
+            },
+            {
+              "content": "{\"result\": [{\"sys_id\": \"1f5daa26c3622210d277befdd40131b3\", \"sys_updated_by\": \"integration.account\", \"sys_created_on\": \"2025-07-08 10:29:12\", \"name\": \"New Update Set\", \"description\": \"Description of the update set\", \"state\": \"in progress\", \"sys_updated_on\": \"2025-07-08 15:01:07\", \"sys_created_by\": \"integration.account\"}, {\"sys_id\": \"5e9b6feec3e62210d277befdd4013121\", \"sys_updated_by\": \"integration.account\", \"sys_created_on\": \"2025-07-08 15:01:07\", \"name\": \"UpdateSet from StreamLit\", \"description\": \"Update set created from streamlit.\", \"state\": \"in progress\", \"sys_updated_on\": \"2025-07-08 15:01:07\", \"sys_created_by\": \"integration.account\"}, {\"sys_id\": \"7de90a1ac3562210d277befdd40131ba\", \"sys_updated_by\": \"system\", \"sys_created_on\": \"2025-06-25 03:00:06\", \"name\": \"Default\", \"description\": \"Automatically created by the system\", \"state\": \"in progress\", \"sys_updated_on\": \"2025-06-25 03:00:06\", \"sys_created_by\": \"system\"}, {\"sys_id\": \"b69d6ee2c3e22210d277befdd401314d\", \"sys_updated_by\": \"integration.account\", \"sys_created_on\": \"2025-07-08 10:30:15\", \"name\": \"Testing POC Update Set\", \"description\": \"this is testing of poc\", \"state\": \"in progress\", \"sys_updated_on\": \"2025-07-08 10:30:15\", \"sys_created_by\": \"integration.account\"}, {\"sys_id\": \"f2d4aa3b78a062104f3459503ff42ad8\", \"sys_updated_by\": \"system\", \"sys_created_on\": \"2025-04-03 20:58:52\", \"name\": \"Default\", \"description\": \"Automatically created by the system\", \"state\": \"in progress\", \"sys_updated_on\": \"2025-04-03 20:58:52\", \"sys_created_by\": \"system\"}, {\"sys_id\": \"f34e42bf78a022104f3459503ff42ae0\", \"sys_updated_by\": \"admin\", \"sys_created_on\": \"2025-04-03 19:20:22\", \"name\": \"Default\", \"description\": \"Automatically created by the system\", \"state\": \"in progress\", \"sys_updated_on\": \"2025-07-08 09:55:27\", \"sys_created_by\": \"system\"}]}",
+              "additional_kwargs": {},
+              "response_metadata": {},
+              "type": "tool",
+              "name": "GetsAnyDetail",
+              "id": null,
+              "tool_call_id": "call_9698aSz9YsR5nKR88BdRFsk4",
+              "artifact": null,
+              "status": "success"
+            },
+            {
+              "content": "Here is the list of all update sets along with their details:\n\n1. **Update Set Name:** New Update Set\n   - **Sys ID:** 1f5daa26c3622210d277befdd40131b3\n   - **Description:** Description of the update set\n   - **State:** In Progress\n   - **Created On:** 2025-07-08 10:29:12\n   - **Updated On:** 2025-07",
+              "additional_kwargs": {},
+              "response_metadata": {},
+              "type": "ai",
+              "name": null,
+              "id": null,
+              "example": false,
+              "tool_calls": [],
+              "invalid_tool_calls": [],
+              "usage_metadata": null
+            },
+            {
+              "content": "show me this in table format",
+              "additional_kwargs": {},
+              "response_metadata": {},
+              "type": "human",
+              "name": null,
+              "id": null,
+              "example": false
+            },
+            {
+              "content": "Here's the information about the update sets presented in a table format:\n\n| Sys ID                                | Name                        | Description                          | State       | Created On           | Updated On           | Created By         | Updated By        |\n|---------------------------------------|-----------------------------|--------------------------------------|-------------|----------------------|----------------------|--------------------|-------------------|\n| 1f5daa26c3622210d277befdd40131b3    | New Update Set              | Description of the update set       ",
+              "additional_kwargs": {},
+              "response_metadata": {},
+              "type": "ai",
+              "name": null,
+              "id": null,
+              "example": false,
+              "tool_calls": [],
+              "invalid_tool_calls": [],
+              "usage_metadata": null
+            },
+            {
+              "content": "try again with all the details. including parent set name",
+              "additional_kwargs": {},
+              "response_metadata": {},
+              "type": "human",
+              "name": null,
+              "id": null,
+              "example": false
+            },
+            {
+              "content": "content='/sys_update_set?sysparm_query=ORDERBYname&sysparm_fields=sys_id,name,parent,sys_created_on,sys_updated_on,sys_created_by,sys_updated_by,description&sysparm_limit=1000' additional_kwargs={} response_metadata={}",
+              "additional_kwargs": {},
+              "response_metadata": {},
+              "type": "tool",
+              "name": "createAPIParam",
+              "id": null,
+              "tool_call_id": "call_g4t2NhYk4eqyDKbS9Gs4haTu",
+              "artifact": null,
+              "status": "success"
+            },
+            {
+              "content": "{\"result\": [{\"sys_id\": \"7de90a1ac3562210d277befdd40131ba\", \"parent\": \"\", \"sys_updated_by\": \"system\", \"sys_created_on\": \"2025-06-25 03:00:06\", \"name\": \"Default\", \"description\": \"Automatically created by the system\", \"sys_updated_on\": \"2025-06-25 03:00:06\", \"sys_created_by\": \"system\"}, {\"sys_id\": \"f2d4aa3b78a062104f3459503ff42ad8\", \"parent\": \"\", \"sys_updated_by\": \"system\", \"sys_created_on\": \"2025-04-03 20:58:52\", \"name\": \"Default\", \"description\": \"Automatically created by the system\", \"sys_updated_on\": \"2025-04-03 20:58:52\", \"sys_created_by\": \"system\"}, {\"sys_id\": \"f34e42bf78a022104f3459503ff42ae0\", \"parent\": \"\", \"sys_updated_by\": \"admin\", \"sys_created_on\": \"2025-04-03 19:20:22\", \"name\": \"Default\", \"description\": \"Automatically created by the system\", \"sys_updated_on\": \"2025-07-08 09:55:27\", \"sys_created_by\": \"system\"}, {\"sys_id\": \"1f5daa26c3622210d277befdd40131b3\", \"parent\": \"\", \"sys_updated_by\": \"integration.account\", \"sys_created_on\": \"2025-07-08 10:29:12\", \"name\": \"New Update Set\", \"description\": \"Description of the update set\", \"sys_updated_on\": \"2025-07-08 15:01:07\", \"sys_created_by\": \"integration.account\"}, {\"sys_id\": \"b69d6ee2c3e22210d277befdd401314d\", \"parent\": \"\", \"sys_updated_by\": \"integration.account\", \"sys_created_on\": \"2025-07-08 10:30:15\", \"name\": \"Testing POC Update Set\", \"description\": \"this is testing of poc\", \"sys_updated_on\": \"2025-07-08 10:30:15\", \"sys_created_by\": \"integration.account\"}, {\"sys_id\": \"5e9b6feec3e62210d277befdd4013121\", \"parent\": {\"link\": \"https://dev185303.service-now.com/api/now/table/sys_update_set/1f5daa26c3622210d277befdd40131b3\", \"value\": \"1f5daa26c3622210d277befdd40131b3\"}, \"sys_updated_by\": \"integration.account\", \"sys_created_on\": \"2025-07-08 15:01:07\", \"name\": \"UpdateSet from StreamLit\", \"description\": \"Update set created from streamlit.\", \"sys_updated_on\": \"2025-07-08 15:01:07\", \"sys_created_by\": \"integration.account\"}]}",
+              "additional_kwargs": {},
+              "response_metadata": {},
+              "type": "tool",
+              "name": "GetsAnyDetail",
+              "id": null,
+              "tool_call_id": "call_XnlzuntJ8361vkqZ0X8DGfXl",
+              "artifact": null,
+              "status": "success"
+            }
+          ]
+        }
+      }
+    ]
+  }
+}

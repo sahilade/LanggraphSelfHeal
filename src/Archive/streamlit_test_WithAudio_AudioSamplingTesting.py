@@ -134,54 +134,57 @@ st.markdown("### 🎙️ Or speak a message")
 wav_audio_data = st_audiorec()
 
 if wav_audio_data is not None:
-    st.audio(wav_audio_data, format="audio/wav")
-    st.write(f"🔎 Audio data length: {len(wav_audio_data)} bytes")
-    st.write(wav_audio_data[:100])  # Shows header snippet for debugging
-
-    import io
-    import soundfile as sf
-    import librosa
-    import numpy as np
-
+    # 💥 BASIC CHECK
+    st.subheader("🧪 Audio Recorder Test Output")
+    st.write(f"Length of wav_audio_data: {len(wav_audio_data)} bytes")
+    
+    # 💥 HEXDUMP FIRST BYTES
+    st.code(wav_audio_data[:32])
+    
+    # 💥 TEXT INTERPRETATION
     try:
-        # 1️⃣ Load WAV in memory
+        text_preview = wav_audio_data[:32].decode(errors='replace')
+        st.text(f"Header Preview: {text_preview}")
+    except Exception as e:
+        st.error(f"Could not decode bytes: {e}")
+
+    # 💥 Playback
+    st.audio(wav_audio_data, format="audio/wav")
+
+    # Inspect WAV contents
+    try:
         audio_buffer = io.BytesIO(wav_audio_data)
         data, samplerate = sf.read(audio_buffer)
-        st.write(f"✅ Original sample rate: {samplerate}")
-        st.write(f"✅ Original shape: {data.shape}")
-
-        # 2️⃣ Convert to mono if needed
+        st.write(f"✅ Audio sample rate: {samplerate}")
+        st.write(f"✅ Audio shape: {data.shape}")  # (samples,) or (samples, channels)
         if len(data.shape) == 2:
             data = librosa.to_mono(data.T)
+            data = data.astype(np.float32)
+            # Resample to 16 kHz
+            data_16k = librosa.resample(data, orig_sr=samplerate, target_sr=16000)
 
-        # 3️⃣ Ensure float32 dtype
-        data = data.astype(np.float32)
-
-        # 4️⃣ Resample to 16 kHz
-        data_16k = librosa.resample(data, orig_sr=samplerate, target_sr=16000)
-        st.write(f"✅ Resampled shape: {data_16k.shape}")
-
-        # 5️⃣ Load Whisper model once
-        if "whisper_model" not in st.session_state:
-            st.session_state.whisper_model = whisper.load_model("tiny.en")
-
-        model = st.session_state.whisper_model
-
-        # 6️⃣ Transcribe
-        with st.spinner("⏳ Transcribing with Whisper..."):
-            result = model.transcribe(data_16k)
-            transcript = result["text"]
-            st.success(f"📝 Transcript: {transcript}")
-            st.session_state.last_audio_input = transcript
-
+            st.write(f"✅ Resampled shape: {data_16k.shape}")
+            if "whisper_model" not in st.session_state:
+              st.session_state.whisper_model = whisper.load_model("tiny.en") 
+            model = st.session_state.whisper_model
+            with st.spinner("Transcribing with Whisper..."):
+                result = model.transcribe(data_16k)
+                transcript = result["text"]
+                st.success(f"📝 Transcript: {transcript}")
+                st.session_state.last_audio_input = transcript 
     except Exception as e:
-        st.error(f"❌ Error reading or processing audio: {e}")
+        st.error(f"❌ Error reading audio: {e}")
+    
+    st.stop()  # ⬅️ STOP HERE so nothing else runs
+
+
 
 if "audio_input_processed" not in st.session_state:
     st.session_state.audio_input_processed = False
 
 audio_input = st.session_state.get("last_audio_input")
 
+audio_input = st.session_state.get("last_audio_input")
 if audio_input and not st.session_state.audio_input_processed:
     print("Transcript - ", audio_input)
     active_thread["messages"].append({"role": "user", "content": audio_input})
