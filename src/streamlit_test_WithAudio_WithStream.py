@@ -27,7 +27,9 @@ def get_bot_response(user_message: str, full_context: Optional[Any] = None):
 def get_bot_response_streaming(user_message: str, full_context: Optional[Any] = None):
     print("[DEBUG] Usertext:", user_message)
     print("[DEBUG] full_context:", full_context)
-    return stream_invoke(user_message, full_context)
+    for chunk in stream_invoke(user_message, full_context):
+            print("chunk",chunk)
+            yield chunk
 
 # ------------------------- LOAD THREADS -------------------------
 if "threads" not in st.session_state:
@@ -105,18 +107,24 @@ if st.session_state["waiting_for_bot_reply"]:
             placeholder = st.empty()
             partial_text = ""
 
-            for chunk in get_bot_response_streaming(user_input, full_response):
-                partial_text += chunk
-                placeholder.markdown(f"**🤖 Bot:** {partial_text}")
+            for item in get_bot_response_streaming(user_input, full_response):
+                print("back in streamlit \n")
+                if item["type"] == "chunk":
+                    partial_text += item["content"]
+                    placeholder.markdown(f"**🤖 Bot:** {partial_text}") 
+                elif item["type"] == "final":
+                    AIMsg = item["message"]
+                    print(">>>",AIMsg)
+                    active_thread["messages"].append({
+                        "role": "bot",
+                        "content": partial_text,
+                        "full_response": AIMsg
+                    })
 
+                print(f"get_bot_response - {item}\n")
+                
             # Replace the placeholder message with the final text
-            messages[-1] = {
-                "role": "bot",
-                "content": partial_text,
-                "full_response": {
-                    "messages": [{"content": partial_text}]
-                }
-            }
+          
 
         st.session_state["waiting_for_bot_reply"] = False
         st.rerun()

@@ -399,13 +399,13 @@ class InternalLLM:
         )
         #print(AIMsg)
         return AIMsg
-    def stream_invoke(self, messages: List[BaseMessage], functions: Optional[List[dict]] = None):
+    def stream_invoke(self, messages: List[BaseMessage], functions: Optional[List[dict]] = None)  :
         """
             Yields partial response chunks from the LLM API as they arrive.
         """
         print("[DEBUG] SERIALIZING for stream")
         serialized_messages = serialize_for_endpoint(messages)
-
+        print(serialized_messages)
         payload = {
             "prompt": json.dumps(serialized_messages),
             "generation_model": self.model_name,
@@ -415,7 +415,7 @@ class InternalLLM:
             "raw_response": True,
             "stream": True
         }
-        print(payload)
+        #print(payload)
         if functions:
             payload["tools"] = functions
             payload["tool_choice"] = "none"
@@ -427,8 +427,9 @@ class InternalLLM:
             "x-pepgenx-apikey": self.api_key,
             "Content-Type": "application/json"
         }
-        
-
+        print(f"Sending LLM \n")
+        partial_text = "" 
+        print("payload -- before sending to llm ",payload)
         with httpx.stream("POST", self.api_url, headers=headers, json=payload, timeout=None,verify=False) as r:
             # for line in r.iter_lines():
             #     print(line+"\n")
@@ -441,13 +442,11 @@ class InternalLLM:
             #                 yield text_piece
             #         except json.JSONDecodeError:
             #             print("[WARN] Bad JSON in stream:", data_str)
+            print("line",r)
             for line in r.iter_lines():
                 if not line:
                     continue  # skip empty lines
-
                 line = line.strip()
-                print(line + "\n")  # for debugging
-
                 if line.startswith('data:'):
                     data_str = line[len('data:'):].strip()
                     if data_str == '[DONE]':
@@ -462,10 +461,16 @@ class InternalLLM:
                         delta = choices[0].get('delta', {})
                         content_piece = delta.get('content')
                         if content_piece:
-                            yield content_piece
+                             partial_text += content_piece
+                             print(f"partial yielding", {type({"type": "chunk", "content": content_piece})})
+                             yield {"type": "chunk", "content": content_piece}
 
                     except json.JSONDecodeError:
                         print("[WARN] Bad JSON in stream:", data_str)
+             # After streaming is done, yield final AIMessage
+        final_message = messages + [AIMessage(content=partial_text)]
+        print("yielding",type({"type": "final", "message": final_message}))
+        yield {"type": "final", "message": final_message}
 # =====================================================
 # InternalLLM instance
 internal_llm = InternalLLM(
@@ -560,7 +565,7 @@ app = graph.compile()
 # ])
 
 
-content_prompt=""" you are helpfull agent"""
+content_prompt=""" you are helpfull agent who interacts with customer and retains memory"""
 SystemMsg=SystemMessage(content=content_prompt)
 
 def invoke(text:str,context: Optional[List] = None):
@@ -580,10 +585,14 @@ def invoke(text:str,context: Optional[List] = None):
     return l
 
 def stream_invoke(text: str, context: Optional[List] = None):
+    print(f"text in stream_invoke {text}\n")
+    print(f"context in stream_invoke {context}\n")
+    print(f"type of context ",type(context))
     if context is None:
         context = []
         message_list = [SystemMsg, HumanMessage(content=text)]
     else:
-        message_list = context["messages"] + [HumanMessage(content=text)]
-    
-    return internal_llm.stream_invoke(message_list, functions=tools_schemas)
+        message_list = context + [HumanMessage(content=text)]
+    for l in internal_llm.stream_invoke(message_list, functions=tools_schemas):
+         print(f"---{l}---")
+         yield l

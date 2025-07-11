@@ -1650,5 +1650,960 @@
         }
       }
     ]
+  },
+  "43e9d74e-0c89-4554-af11-f2dd62203c79": {
+    "name": "Thread 3",
+    "messages": [
+      {
+        "role": "user",
+        "content": "write a 1000 words essay on Israel"
+      },
+      {
+        "role": "bot",
+        "content": "\ud83e\udd16 Thinking...",
+        "placeholder": true
+      },
+      {
+        "role": "bot",
+        "content": "### Israel: A Land of History, Culture, and Complexity\n\nIsrael, a small nation located in the Middle East, is a land steeped in history, culture, and geopolitical significance. Bordered by Lebanon to the north, Syria to the northeast, Jordan to the east, and Egypt to the southwest, Israel is situated along the eastern shore of the Mediterranean Sea. Despite its small geographic size, Israel has been at the center of historical events and conflicts that have shaped not only the region but also the world at large.\n\n#### Historical Background\n\nThe history of Israel dates back thousands of years, with roots in ancient civilizations. The land is often referred to as the \"Holy Land\" due to its significance in Judaism, Christianity, and Islam. For Jews, Israel is the Promised Land, as described in the Hebrew Bible, where they believe their ancestors established a kingdom under kings such as David and Solomon. The destruction of the Second Temple in 70 CE by the Romans marked a significant turning point, leading to a long period of Jewish diaspora.\n\nThe modern state of Israel was established on May 14, 1948, following a United Nations plan to partition Palestine into separate Jewish and Arab states. This decision was met with resistance from Arab nations, leading to the Arab-Israeli War of 1948. The war resulted in the establishment of Israel, but also in the displacement of a large number of Palestinians, an event referred to as the Nakba, or \"catastrophe.\" This historical context is crucial for understanding the ongoing Israeli-Palestinian conflict, which remains one of the most contentious issues in global politics.\n\n#### Geopolitical Significance\n\nIsrael's geopolitical significance cannot be overstated. It is a key ally of the United States in the Middle East, serving as a counterbalance to various regional adversaries. The nation has a robust military and advanced technological capabilities, making it a pivotal player in regional security dynamics. The discovery of natural gas reserves off the coast of Israel has further enhanced its strategic importance, providing energy security and economic opportunities.\n\nThe Israeli-Palestinian conflict is at the heart of the region's instability. The competing national aspirations of Israelis and Palestinians have led to decades of violence, negotiations, and failed peace processes. The issues of borders, the status of Jerusalem, the right of return for Palestinian refugees, and security concerns remain unresolved. International efforts to broker peace have often been met with skepticism and resistance from both sides, highlighting the complexity of the situation.\n\n#### Cultural Diversity\n\nIsrael is a melting pot of cultures, languages, and religions. The population includes Jews from diverse backgrounds\u2014Ashkenazi, Sephardi, Mizrahi, and Ethiopian, among others\u2014each contributing to the rich tapestry of Israeli society. Additionally, there is a significant Arab population, including Muslims, Christians, and Druze, who have lived in the region for centuries.\n\nThe cultural landscape of Israel is vibrant, with a thriving arts scene, music, literature, and cuisine that reflect the diverse influences of its inhabitants. The Hebrew language, revived in the 19th and 20th centuries, is a symbol of national identity and unity. Israeli cinema has gained international acclaim, with films that explore themes of identity, conflict, and the human experience.\n\n#### Economic Development\n\nIsrael's economy is characterized by innovation and entrepreneurship. It is often referred to as the \"Start-Up Nation\" due to its high concentration of technology companies and start-ups. The country's investment in research and development has led to advancements in various fields, including agriculture, water management, and cybersecurity. The tech industry has become a significant driver of economic growth, attracting foreign investment and talent.\n\nDespite its economic successes, Israel faces challenges, including income inequality and a high cost of living. The disparities between different communities, particularly between Jewish and Arab citizens, are significant and require ongoing attention and policy intervention.\n\n#### Challenges and Prospects\n\nThe challenges facing Israel are multifaceted. The Israeli-Palestinian conflict remains unresolved, with periodic escalations of violence and ongoing tensions. The Israeli government has faced criticism for its settlement policies in the West Bank, which are viewed by many as obstacles to peace. Additionally, the rise of extremist groups in the region poses security threats and complicates diplomatic efforts.\n\nOn the international stage, Israel's actions are often scrutinized, leading to debates about human rights, democracy, and the rule of law. The BDS (Boycott, Divestment, Sanctions) movement, which advocates for economic and political pressure on Israel, reflects the growing global discourse surrounding the Israeli-Palestinian conflict.\n\nDespite these challenges, there are also opportunities for peace and cooperation. Recent normalization agreements between Israel and several Arab nations, including the United Arab Emirates and Bahrain, signal a potential shift in regional dynamics. These agreements may pave the way for further dialogue and collaboration on shared interests, such as economic development and security.\n\n#### Conclusion\n\nIsrael is a nation of contrasts, where ancient history meets modern innovation, and diverse cultures coexist amid ongoing conflicts. Its significance extends beyond its borders, influencing global politics, economics, and culture. As Israel navigates the complexities of its past and present, the pursuit of peace, security, and social cohesion remains a critical endeavor for its future. The path forward will require dialogue, understanding, and a commitment to addressing the needs and aspirations of all its inhabitants. In a world increasingly interconnected, the story of Israel continues to resonate, reminding us of the enduring quest for identity, belonging, and peace.",
+        "full_response": {
+          "content": "### Israel: A Land of History, Culture, and Complexity\n\nIsrael, a small nation located in the Middle East, is a land steeped in history, culture, and geopolitical significance. Bordered by Lebanon to the north, Syria to the northeast, Jordan to the east, and Egypt to the southwest, Israel is situated along the eastern shore of the Mediterranean Sea. Despite its small geographic size, Israel has been at the center of historical events and conflicts that have shaped not only the region but also the world at large.\n\n#### Historical Background\n\nThe history of Israel dates back thousands of years, with roots in ancient civilizations. The land is often referred to as the \"Holy Land\" due to its significance in Judaism, Christianity, and Islam. For Jews, Israel is the Promised Land, as described in the Hebrew Bible, where they believe their ancestors established a kingdom under kings such as David and Solomon. The destruction of the Second Temple in 70 CE by the Romans marked a significant turning point, leading to a long period of Jewish diaspora.\n\nThe modern state of Israel was established on May 14, 1948, following a United Nations plan to partition Palestine into separate Jewish and Arab states. This decision was met with resistance from Arab nations, leading to the Arab-Israeli War of 1948. The war resulted in the establishment of Israel, but also in the displacement of a large number of Palestinians, an event referred to as the Nakba, or \"catastrophe.\" This historical context is crucial for understanding the ongoing Israeli-Palestinian conflict, which remains one of the most contentious issues in global politics.\n\n#### Geopolitical Significance\n\nIsrael's geopolitical significance cannot be overstated. It is a key ally of the United States in the Middle East, serving as a counterbalance to various regional adversaries. The nation has a robust military and advanced technological capabilities, making it a pivotal player in regional security dynamics. The discovery of natural gas reserves off the coast of Israel has further enhanced its strategic importance, providing energy security and economic opportunities.\n\nThe Israeli-Palestinian conflict is at the heart of the region's instability. The competing national aspirations of Israelis and Palestinians have led to decades of violence, negotiations, and failed peace processes. The issues of borders, the status of Jerusalem, the right of return for Palestinian refugees, and security concerns remain unresolved. International efforts to broker peace have often been met with skepticism and resistance from both sides, highlighting the complexity of the situation.\n\n#### Cultural Diversity\n\nIsrael is a melting pot of cultures, languages, and religions. The population includes Jews from diverse backgrounds\u2014Ashkenazi, Sephardi, Mizrahi, and Ethiopian, among others\u2014each contributing to the rich tapestry of Israeli society. Additionally, there is a significant Arab population, including Muslims, Christians, and Druze, who have lived in the region for centuries.\n\nThe cultural landscape of Israel is vibrant, with a thriving arts scene, music, literature, and cuisine that reflect the diverse influences of its inhabitants. The Hebrew language, revived in the 19th and 20th centuries, is a symbol of national identity and unity. Israeli cinema has gained international acclaim, with films that explore themes of identity, conflict, and the human experience.\n\n#### Economic Development\n\nIsrael's economy is characterized by innovation and entrepreneurship. It is often referred to as the \"Start-Up Nation\" due to its high concentration of technology companies and start-ups. The country's investment in research and development has led to advancements in various fields, including agriculture, water management, and cybersecurity. The tech industry has become a significant driver of economic growth, attracting foreign investment and talent.\n\nDespite its economic successes, Israel faces challenges, including income inequality and a high cost of living. The disparities between different communities, particularly between Jewish and Arab citizens, are significant and require ongoing attention and policy intervention.\n\n#### Challenges and Prospects\n\nThe challenges facing Israel are multifaceted. The Israeli-Palestinian conflict remains unresolved, with periodic escalations of violence and ongoing tensions. The Israeli government has faced criticism for its settlement policies in the West Bank, which are viewed by many as obstacles to peace. Additionally, the rise of extremist groups in the region poses security threats and complicates diplomatic efforts.\n\nOn the international stage, Israel's actions are often scrutinized, leading to debates about human rights, democracy, and the rule of law. The BDS (Boycott, Divestment, Sanctions) movement, which advocates for economic and political pressure on Israel, reflects the growing global discourse surrounding the Israeli-Palestinian conflict.\n\nDespite these challenges, there are also opportunities for peace and cooperation. Recent normalization agreements between Israel and several Arab nations, including the United Arab Emirates and Bahrain, signal a potential shift in regional dynamics. These agreements may pave the way for further dialogue and collaboration on shared interests, such as economic development and security.\n\n#### Conclusion\n\nIsrael is a nation of contrasts, where ancient history meets modern innovation, and diverse cultures coexist amid ongoing conflicts. Its significance extends beyond its borders, influencing global politics, economics, and culture. As Israel navigates the complexities of its past and present, the pursuit of peace, security, and social cohesion remains a critical endeavor for its future. The path forward will require dialogue, understanding, and a commitment to addressing the needs and aspirations of all its inhabitants. In a world increasingly interconnected, the story of Israel continues to resonate, reminding us of the enduring quest for identity, belonging, and peace.",
+          "additional_kwargs": {},
+          "response_metadata": {},
+          "type": "ai",
+          "name": null,
+          "id": null,
+          "example": false,
+          "tool_calls": [],
+          "invalid_tool_calls": [],
+          "usage_metadata": null
+        }
+      }
+    ]
+  },
+  "1af6cba3-2d7c-4b86-8ea4-48ef8d7d3929": {
+    "name": "Thread 4",
+    "messages": []
+  },
+  "335c234c-249e-4664-ac7f-dcbb39b9205f": {
+    "name": "Thread 5",
+    "messages": [
+      {
+        "role": "user",
+        "content": "Hi"
+      },
+      {
+        "role": "bot",
+        "content": "\ud83e\udd16 Thinking...",
+        "placeholder": true
+      },
+      {
+        "role": "bot",
+        "content": "Hello! How can I assist you today?",
+        "full_response": [
+          {
+            "content": " you are helpfull agent",
+            "additional_kwargs": {},
+            "response_metadata": {},
+            "type": "system",
+            "name": null,
+            "id": null
+          },
+          {
+            "content": "Hi",
+            "additional_kwargs": {},
+            "response_metadata": {},
+            "type": "human",
+            "name": null,
+            "id": null,
+            "example": false
+          },
+          {
+            "content": "Hello! How can I assist you today?",
+            "additional_kwargs": {},
+            "response_metadata": {},
+            "type": "ai",
+            "name": null,
+            "id": null,
+            "example": false,
+            "tool_calls": [],
+            "invalid_tool_calls": [],
+            "usage_metadata": null
+          }
+        ]
+      },
+      {
+        "role": "user",
+        "content": "What can you do for me"
+      },
+      {
+        "role": "bot",
+        "content": "\ud83e\udd16 Thinking...",
+        "placeholder": true
+      },
+      {
+        "role": "bot",
+        "content": "{\"role\": \"assistant\", \"content\": \"I can help you with a variety of tasks, such as answering questions, providing information, assisting with problem-solving, offering recommendations, and more. Just let me know what you need!\"}",
+        "full_response": [
+          {
+            "content": " you are helpfull agent",
+            "additional_kwargs": {},
+            "response_metadata": {},
+            "type": "system",
+            "name": null,
+            "id": null
+          },
+          {
+            "content": "Hi",
+            "additional_kwargs": {},
+            "response_metadata": {},
+            "type": "human",
+            "name": null,
+            "id": null,
+            "example": false
+          },
+          {
+            "content": "Hello! How can I assist you today?",
+            "additional_kwargs": {},
+            "response_metadata": {},
+            "type": "ai",
+            "name": null,
+            "id": null,
+            "example": false,
+            "tool_calls": [],
+            "invalid_tool_calls": [],
+            "usage_metadata": null
+          },
+          {
+            "content": "What can you do for me",
+            "additional_kwargs": {},
+            "response_metadata": {},
+            "type": "human",
+            "name": null,
+            "id": null,
+            "example": false
+          },
+          {
+            "content": "{\"role\": \"assistant\", \"content\": \"I can help you with a variety of tasks, such as answering questions, providing information, assisting with problem-solving, offering recommendations, and more. Just let me know what you need!\"}",
+            "additional_kwargs": {},
+            "response_metadata": {},
+            "type": "ai",
+            "name": null,
+            "id": null,
+            "example": false,
+            "tool_calls": [],
+            "invalid_tool_calls": [],
+            "usage_metadata": null
+          }
+        ]
+      },
+      {
+        "role": "user",
+        "content": "remember abc=kkk"
+      },
+      {
+        "role": "bot",
+        "content": "\ud83e\udd16 Thinking...",
+        "placeholder": true
+      },
+      {
+        "role": "bot",
+        "content": "I can't remember information from our conversation once it's over, but I can help you with anything else you need right now! If you have any questions or tasks, feel free to ask.",
+        "full_response": [
+          {
+            "content": " you are helpfull agent",
+            "additional_kwargs": {},
+            "response_metadata": {},
+            "type": "system",
+            "name": null,
+            "id": null
+          },
+          {
+            "content": "Hi",
+            "additional_kwargs": {},
+            "response_metadata": {},
+            "type": "human",
+            "name": null,
+            "id": null,
+            "example": false
+          },
+          {
+            "content": "Hello! How can I assist you today?",
+            "additional_kwargs": {},
+            "response_metadata": {},
+            "type": "ai",
+            "name": null,
+            "id": null,
+            "example": false,
+            "tool_calls": [],
+            "invalid_tool_calls": [],
+            "usage_metadata": null
+          },
+          {
+            "content": "What can you do for me",
+            "additional_kwargs": {},
+            "response_metadata": {},
+            "type": "human",
+            "name": null,
+            "id": null,
+            "example": false
+          },
+          {
+            "content": "{\"role\": \"assistant\", \"content\": \"I can help you with a variety of tasks, such as answering questions, providing information, assisting with problem-solving, offering recommendations, and more. Just let me know what you need!\"}",
+            "additional_kwargs": {},
+            "response_metadata": {},
+            "type": "ai",
+            "name": null,
+            "id": null,
+            "example": false,
+            "tool_calls": [],
+            "invalid_tool_calls": [],
+            "usage_metadata": null
+          },
+          {
+            "content": "remember abc=kkk",
+            "additional_kwargs": {},
+            "response_metadata": {},
+            "type": "human",
+            "name": null,
+            "id": null,
+            "example": false
+          },
+          {
+            "content": "I can't remember information from our conversation once it's over, but I can help you with anything else you need right now! If you have any questions or tasks, feel free to ask.",
+            "additional_kwargs": {},
+            "response_metadata": {},
+            "type": "ai",
+            "name": null,
+            "id": null,
+            "example": false,
+            "tool_calls": [],
+            "invalid_tool_calls": [],
+            "usage_metadata": null
+          }
+        ]
+      },
+      {
+        "role": "user",
+        "content": "what is abc ?"
+      },
+      {
+        "role": "bot",
+        "content": "\ud83e\udd16 Thinking...",
+        "placeholder": true
+      },
+      {
+        "role": "bot",
+        "content": "{\"role\": \"assistant\", \"content\": \"I don't have the ability to remember past interactions, so I can't recall what 'abc' refers to. However, if you tell me what you need, I'll be happy to help!\"}",
+        "full_response": [
+          {
+            "content": " you are helpfull agent",
+            "additional_kwargs": {},
+            "response_metadata": {},
+            "type": "system",
+            "name": null,
+            "id": null
+          },
+          {
+            "content": "Hi",
+            "additional_kwargs": {},
+            "response_metadata": {},
+            "type": "human",
+            "name": null,
+            "id": null,
+            "example": false
+          },
+          {
+            "content": "Hello! How can I assist you today?",
+            "additional_kwargs": {},
+            "response_metadata": {},
+            "type": "ai",
+            "name": null,
+            "id": null,
+            "example": false,
+            "tool_calls": [],
+            "invalid_tool_calls": [],
+            "usage_metadata": null
+          },
+          {
+            "content": "What can you do for me",
+            "additional_kwargs": {},
+            "response_metadata": {},
+            "type": "human",
+            "name": null,
+            "id": null,
+            "example": false
+          },
+          {
+            "content": "{\"role\": \"assistant\", \"content\": \"I can help you with a variety of tasks, such as answering questions, providing information, assisting with problem-solving, offering recommendations, and more. Just let me know what you need!\"}",
+            "additional_kwargs": {},
+            "response_metadata": {},
+            "type": "ai",
+            "name": null,
+            "id": null,
+            "example": false,
+            "tool_calls": [],
+            "invalid_tool_calls": [],
+            "usage_metadata": null
+          },
+          {
+            "content": "remember abc=kkk",
+            "additional_kwargs": {},
+            "response_metadata": {},
+            "type": "human",
+            "name": null,
+            "id": null,
+            "example": false
+          },
+          {
+            "content": "I can't remember information from our conversation once it's over, but I can help you with anything else you need right now! If you have any questions or tasks, feel free to ask.",
+            "additional_kwargs": {},
+            "response_metadata": {},
+            "type": "ai",
+            "name": null,
+            "id": null,
+            "example": false,
+            "tool_calls": [],
+            "invalid_tool_calls": [],
+            "usage_metadata": null
+          },
+          {
+            "content": "what is abc ?",
+            "additional_kwargs": {},
+            "response_metadata": {},
+            "type": "human",
+            "name": null,
+            "id": null,
+            "example": false
+          },
+          {
+            "content": "{\"role\": \"assistant\", \"content\": \"I don't have the ability to remember past interactions, so I can't recall what 'abc' refers to. However, if you tell me what you need, I'll be happy to help!\"}",
+            "additional_kwargs": {},
+            "response_metadata": {},
+            "type": "ai",
+            "name": null,
+            "id": null,
+            "example": false,
+            "tool_calls": [],
+            "invalid_tool_calls": [],
+            "usage_metadata": null
+          }
+        ]
+      }
+    ]
+  },
+  "873de45b-f3a2-4898-a71f-95328850b399": {
+    "name": "Thread 6",
+    "messages": [
+      {
+        "role": "user",
+        "content": "Hi, my name is sahil"
+      },
+      {
+        "role": "bot",
+        "content": "\ud83e\udd16 Thinking...",
+        "placeholder": true
+      },
+      {
+        "role": "bot",
+        "content": "Hello Sahil! It's great to meet you. How can I assist you today?",
+        "full_response": [
+          {
+            "content": " you are helpfull agent who interacts with customer and retains memory",
+            "additional_kwargs": {},
+            "response_metadata": {},
+            "type": "system",
+            "name": null,
+            "id": null
+          },
+          {
+            "content": "Hi, my name is sahil",
+            "additional_kwargs": {},
+            "response_metadata": {},
+            "type": "human",
+            "name": null,
+            "id": null,
+            "example": false
+          },
+          {
+            "content": "Hello Sahil! It's great to meet you. How can I assist you today?",
+            "additional_kwargs": {},
+            "response_metadata": {},
+            "type": "ai",
+            "name": null,
+            "id": null,
+            "example": false,
+            "tool_calls": [],
+            "invalid_tool_calls": [],
+            "usage_metadata": null
+          }
+        ]
+      },
+      {
+        "role": "user",
+        "content": "What is my name"
+      },
+      {
+        "role": "bot",
+        "content": "\ud83e\udd16 Thinking...",
+        "placeholder": true
+      },
+      {
+        "role": "bot",
+        "content": "Your name is Sahil. How can I assist you further today?",
+        "full_response": [
+          {
+            "content": " you are helpfull agent who interacts with customer and retains memory",
+            "additional_kwargs": {},
+            "response_metadata": {},
+            "type": "system",
+            "name": null,
+            "id": null
+          },
+          {
+            "content": "Hi, my name is sahil",
+            "additional_kwargs": {},
+            "response_metadata": {},
+            "type": "human",
+            "name": null,
+            "id": null,
+            "example": false
+          },
+          {
+            "content": "Hello Sahil! It's great to meet you. How can I assist you today?",
+            "additional_kwargs": {},
+            "response_metadata": {},
+            "type": "ai",
+            "name": null,
+            "id": null,
+            "example": false,
+            "tool_calls": [],
+            "invalid_tool_calls": [],
+            "usage_metadata": null
+          },
+          {
+            "content": "What is my name",
+            "additional_kwargs": {},
+            "response_metadata": {},
+            "type": "human",
+            "name": null,
+            "id": null,
+            "example": false
+          },
+          {
+            "content": "Your name is Sahil. How can I assist you further today?",
+            "additional_kwargs": {},
+            "response_metadata": {},
+            "type": "ai",
+            "name": null,
+            "id": null,
+            "example": false,
+            "tool_calls": [],
+            "invalid_tool_calls": [],
+            "usage_metadata": null
+          }
+        ]
+      },
+      {
+        "role": "user",
+        "content": "abc=000"
+      },
+      {
+        "role": "bot",
+        "content": "\ud83e\udd16 Thinking...",
+        "placeholder": true
+      },
+      {
+        "role": "bot",
+        "content": "{\"role\": \"assistant\", \"content\": \"I've noted that you mentioned 'abc=000'. How can I assist you with that? Is there something specific you would like to discuss or do related to it?\"}",
+        "full_response": [
+          {
+            "content": " you are helpfull agent who interacts with customer and retains memory",
+            "additional_kwargs": {},
+            "response_metadata": {},
+            "type": "system",
+            "name": null,
+            "id": null
+          },
+          {
+            "content": "Hi, my name is sahil",
+            "additional_kwargs": {},
+            "response_metadata": {},
+            "type": "human",
+            "name": null,
+            "id": null,
+            "example": false
+          },
+          {
+            "content": "Hello Sahil! It's great to meet you. How can I assist you today?",
+            "additional_kwargs": {},
+            "response_metadata": {},
+            "type": "ai",
+            "name": null,
+            "id": null,
+            "example": false,
+            "tool_calls": [],
+            "invalid_tool_calls": [],
+            "usage_metadata": null
+          },
+          {
+            "content": "What is my name",
+            "additional_kwargs": {},
+            "response_metadata": {},
+            "type": "human",
+            "name": null,
+            "id": null,
+            "example": false
+          },
+          {
+            "content": "Your name is Sahil. How can I assist you further today?",
+            "additional_kwargs": {},
+            "response_metadata": {},
+            "type": "ai",
+            "name": null,
+            "id": null,
+            "example": false,
+            "tool_calls": [],
+            "invalid_tool_calls": [],
+            "usage_metadata": null
+          },
+          {
+            "content": "abc=000",
+            "additional_kwargs": {},
+            "response_metadata": {},
+            "type": "human",
+            "name": null,
+            "id": null,
+            "example": false
+          },
+          {
+            "content": "{\"role\": \"assistant\", \"content\": \"I've noted that you mentioned 'abc=000'. How can I assist you with that? Is there something specific you would like to discuss or do related to it?\"}",
+            "additional_kwargs": {},
+            "response_metadata": {},
+            "type": "ai",
+            "name": null,
+            "id": null,
+            "example": false,
+            "tool_calls": [],
+            "invalid_tool_calls": [],
+            "usage_metadata": null
+          }
+        ]
+      },
+      {
+        "role": "user",
+        "content": "what is abc ?"
+      },
+      {
+        "role": "bot",
+        "content": "\ud83e\udd16 Thinking...",
+        "placeholder": true
+      },
+      {
+        "role": "bot",
+        "content": "{\"role\": \"assistant\", \"content\": \"You mentioned 'abc=000', but you haven't provided a specific context for 'abc'. It could represent a variable, a code, or something else entirely. Could you please clarify what 'abc' refers to in this context?\"}",
+        "full_response": [
+          {
+            "content": " you are helpfull agent who interacts with customer and retains memory",
+            "additional_kwargs": {},
+            "response_metadata": {},
+            "type": "system",
+            "name": null,
+            "id": null
+          },
+          {
+            "content": "Hi, my name is sahil",
+            "additional_kwargs": {},
+            "response_metadata": {},
+            "type": "human",
+            "name": null,
+            "id": null,
+            "example": false
+          },
+          {
+            "content": "Hello Sahil! It's great to meet you. How can I assist you today?",
+            "additional_kwargs": {},
+            "response_metadata": {},
+            "type": "ai",
+            "name": null,
+            "id": null,
+            "example": false,
+            "tool_calls": [],
+            "invalid_tool_calls": [],
+            "usage_metadata": null
+          },
+          {
+            "content": "What is my name",
+            "additional_kwargs": {},
+            "response_metadata": {},
+            "type": "human",
+            "name": null,
+            "id": null,
+            "example": false
+          },
+          {
+            "content": "Your name is Sahil. How can I assist you further today?",
+            "additional_kwargs": {},
+            "response_metadata": {},
+            "type": "ai",
+            "name": null,
+            "id": null,
+            "example": false,
+            "tool_calls": [],
+            "invalid_tool_calls": [],
+            "usage_metadata": null
+          },
+          {
+            "content": "abc=000",
+            "additional_kwargs": {},
+            "response_metadata": {},
+            "type": "human",
+            "name": null,
+            "id": null,
+            "example": false
+          },
+          {
+            "content": "{\"role\": \"assistant\", \"content\": \"I've noted that you mentioned 'abc=000'. How can I assist you with that? Is there something specific you would like to discuss or do related to it?\"}",
+            "additional_kwargs": {},
+            "response_metadata": {},
+            "type": "ai",
+            "name": null,
+            "id": null,
+            "example": false,
+            "tool_calls": [],
+            "invalid_tool_calls": [],
+            "usage_metadata": null
+          },
+          {
+            "content": "what is abc ?",
+            "additional_kwargs": {},
+            "response_metadata": {},
+            "type": "human",
+            "name": null,
+            "id": null,
+            "example": false
+          },
+          {
+            "content": "{\"role\": \"assistant\", \"content\": \"You mentioned 'abc=000', but you haven't provided a specific context for 'abc'. It could represent a variable, a code, or something else entirely. Could you please clarify what 'abc' refers to in this context?\"}",
+            "additional_kwargs": {},
+            "response_metadata": {},
+            "type": "ai",
+            "name": null,
+            "id": null,
+            "example": false,
+            "tool_calls": [],
+            "invalid_tool_calls": [],
+            "usage_metadata": null
+          }
+        ]
+      }
+    ]
+  },
+  "3d817f37-986a-4cb8-888e-3a1512ef6d36": {
+    "name": "Thread 7",
+    "messages": [
+      {
+        "role": "user",
+        "content": "Hi can you solve a puzzle for me"
+      },
+      {
+        "role": "bot",
+        "content": "\ud83e\udd16 Thinking...",
+        "placeholder": true
+      },
+      {
+        "role": "bot",
+        "content": "Of course! I'd be happy to help you with a puzzle. What puzzle do you need assistance with?",
+        "full_response": [
+          {
+            "content": " you are helpfull agent who interacts with customer and retains memory",
+            "additional_kwargs": {},
+            "response_metadata": {},
+            "type": "system",
+            "name": null,
+            "id": null
+          },
+          {
+            "content": "Hi can you solve a puzzle for me",
+            "additional_kwargs": {},
+            "response_metadata": {},
+            "type": "human",
+            "name": null,
+            "id": null,
+            "example": false
+          },
+          {
+            "content": "Of course! I'd be happy to help you with a puzzle. What puzzle do you need assistance with?",
+            "additional_kwargs": {},
+            "response_metadata": {},
+            "type": "ai",
+            "name": null,
+            "id": null,
+            "example": false,
+            "tool_calls": [],
+            "invalid_tool_calls": [],
+            "usage_metadata": null
+          }
+        ]
+      },
+      {
+        "role": "user",
+        "content": "if a=b, b=z, z=123, 123=5.4"
+      },
+      {
+        "role": "bot",
+        "content": "\ud83e\udd16 Thinking...",
+        "placeholder": true
+      },
+      {
+        "role": "bot",
+        "content": "To solve the puzzle, we can follow the chain of equalities:\n\n1. If \\( a = b \\)\n2. And \\( b = z \\)\n3. Then \\( a = z \\).\n4. Next, since \\( z = 123 \\), we can substitute \\( z \\) with \\( 123 \\) in the previous equation: \\( a = 123 \\).\n5. Finally, since \\( 123 = 5.4 \\), we can also say that \\( a = 5.4 \\).\n\nSo, the final result is that \\( a = 5.4 \\). If you have more puzzles or questions, feel free to ask!",
+        "full_response": [
+          {
+            "content": " you are helpfull agent who interacts with customer and retains memory",
+            "additional_kwargs": {},
+            "response_metadata": {},
+            "type": "system",
+            "name": null,
+            "id": null
+          },
+          {
+            "content": "Hi can you solve a puzzle for me",
+            "additional_kwargs": {},
+            "response_metadata": {},
+            "type": "human",
+            "name": null,
+            "id": null,
+            "example": false
+          },
+          {
+            "content": "Of course! I'd be happy to help you with a puzzle. What puzzle do you need assistance with?",
+            "additional_kwargs": {},
+            "response_metadata": {},
+            "type": "ai",
+            "name": null,
+            "id": null,
+            "example": false,
+            "tool_calls": [],
+            "invalid_tool_calls": [],
+            "usage_metadata": null
+          },
+          {
+            "content": "if a=b, b=z, z=123, 123=5.4",
+            "additional_kwargs": {},
+            "response_metadata": {},
+            "type": "human",
+            "name": null,
+            "id": null,
+            "example": false
+          },
+          {
+            "content": "To solve the puzzle, we can follow the chain of equalities:\n\n1. If \\( a = b \\)\n2. And \\( b = z \\)\n3. Then \\( a = z \\).\n4. Next, since \\( z = 123 \\), we can substitute \\( z \\) with \\( 123 \\) in the previous equation: \\( a = 123 \\).\n5. Finally, since \\( 123 = 5.4 \\), we can also say that \\( a = 5.4 \\).\n\nSo, the final result is that \\( a = 5.4 \\). If you have more puzzles or questions, feel free to ask!",
+            "additional_kwargs": {},
+            "response_metadata": {},
+            "type": "ai",
+            "name": null,
+            "id": null,
+            "example": false,
+            "tool_calls": [],
+            "invalid_tool_calls": [],
+            "usage_metadata": null
+          }
+        ]
+      },
+      {
+        "role": "user",
+        "content": "ok.. abc=kkk"
+      },
+      {
+        "role": "bot",
+        "content": "\ud83e\udd16 Thinking...",
+        "placeholder": true
+      },
+      {
+        "role": "bot",
+        "content": "It looks like you've provided another equation: \\( abc = kkk \\). To help you further, could you clarify what you would like to solve or find out regarding this equation? Are you looking for a specific value for \\( a \\), \\( b \\), \\( c \\), or \\( k \\)? Let me know how I can assist!",
+        "full_response": [
+          {
+            "content": " you are helpfull agent who interacts with customer and retains memory",
+            "additional_kwargs": {},
+            "response_metadata": {},
+            "type": "system",
+            "name": null,
+            "id": null
+          },
+          {
+            "content": "Hi can you solve a puzzle for me",
+            "additional_kwargs": {},
+            "response_metadata": {},
+            "type": "human",
+            "name": null,
+            "id": null,
+            "example": false
+          },
+          {
+            "content": "Of course! I'd be happy to help you with a puzzle. What puzzle do you need assistance with?",
+            "additional_kwargs": {},
+            "response_metadata": {},
+            "type": "ai",
+            "name": null,
+            "id": null,
+            "example": false,
+            "tool_calls": [],
+            "invalid_tool_calls": [],
+            "usage_metadata": null
+          },
+          {
+            "content": "if a=b, b=z, z=123, 123=5.4",
+            "additional_kwargs": {},
+            "response_metadata": {},
+            "type": "human",
+            "name": null,
+            "id": null,
+            "example": false
+          },
+          {
+            "content": "To solve the puzzle, we can follow the chain of equalities:\n\n1. If \\( a = b \\)\n2. And \\( b = z \\)\n3. Then \\( a = z \\).\n4. Next, since \\( z = 123 \\), we can substitute \\( z \\) with \\( 123 \\) in the previous equation: \\( a = 123 \\).\n5. Finally, since \\( 123 = 5.4 \\), we can also say that \\( a = 5.4 \\).\n\nSo, the final result is that \\( a = 5.4 \\). If you have more puzzles or questions, feel free to ask!",
+            "additional_kwargs": {},
+            "response_metadata": {},
+            "type": "ai",
+            "name": null,
+            "id": null,
+            "example": false,
+            "tool_calls": [],
+            "invalid_tool_calls": [],
+            "usage_metadata": null
+          },
+          {
+            "content": "ok.. abc=kkk",
+            "additional_kwargs": {},
+            "response_metadata": {},
+            "type": "human",
+            "name": null,
+            "id": null,
+            "example": false
+          },
+          {
+            "content": "It looks like you've provided another equation: \\( abc = kkk \\). To help you further, could you clarify what you would like to solve or find out regarding this equation? Are you looking for a specific value for \\( a \\), \\( b \\), \\( c \\), or \\( k \\)? Let me know how I can assist!",
+            "additional_kwargs": {},
+            "response_metadata": {},
+            "type": "ai",
+            "name": null,
+            "id": null,
+            "example": false,
+            "tool_calls": [],
+            "invalid_tool_calls": [],
+            "usage_metadata": null
+          }
+        ]
+      },
+      {
+        "role": "user",
+        "content": "what is abc= ?"
+      },
+      {
+        "role": "bot",
+        "content": "\ud83e\udd16 Thinking...",
+        "placeholder": true
+      },
+      {
+        "role": "bot",
+        "content": "To express \\( abc \\) in terms of \\( k \\) from the equation \\( abc = kkk \\), we can rewrite it as:\n\n\\[\nabc = k \\cdot k \\cdot k = k^3\n\\]\n\nSo, \\( abc = k^3 \\). If you have any more questions or need further assistance, feel free to ask!",
+        "full_response": [
+          {
+            "content": " you are helpfull agent who interacts with customer and retains memory",
+            "additional_kwargs": {},
+            "response_metadata": {},
+            "type": "system",
+            "name": null,
+            "id": null
+          },
+          {
+            "content": "Hi can you solve a puzzle for me",
+            "additional_kwargs": {},
+            "response_metadata": {},
+            "type": "human",
+            "name": null,
+            "id": null,
+            "example": false
+          },
+          {
+            "content": "Of course! I'd be happy to help you with a puzzle. What puzzle do you need assistance with?",
+            "additional_kwargs": {},
+            "response_metadata": {},
+            "type": "ai",
+            "name": null,
+            "id": null,
+            "example": false,
+            "tool_calls": [],
+            "invalid_tool_calls": [],
+            "usage_metadata": null
+          },
+          {
+            "content": "if a=b, b=z, z=123, 123=5.4",
+            "additional_kwargs": {},
+            "response_metadata": {},
+            "type": "human",
+            "name": null,
+            "id": null,
+            "example": false
+          },
+          {
+            "content": "To solve the puzzle, we can follow the chain of equalities:\n\n1. If \\( a = b \\)\n2. And \\( b = z \\)\n3. Then \\( a = z \\).\n4. Next, since \\( z = 123 \\), we can substitute \\( z \\) with \\( 123 \\) in the previous equation: \\( a = 123 \\).\n5. Finally, since \\( 123 = 5.4 \\), we can also say that \\( a = 5.4 \\).\n\nSo, the final result is that \\( a = 5.4 \\). If you have more puzzles or questions, feel free to ask!",
+            "additional_kwargs": {},
+            "response_metadata": {},
+            "type": "ai",
+            "name": null,
+            "id": null,
+            "example": false,
+            "tool_calls": [],
+            "invalid_tool_calls": [],
+            "usage_metadata": null
+          },
+          {
+            "content": "ok.. abc=kkk",
+            "additional_kwargs": {},
+            "response_metadata": {},
+            "type": "human",
+            "name": null,
+            "id": null,
+            "example": false
+          },
+          {
+            "content": "It looks like you've provided another equation: \\( abc = kkk \\). To help you further, could you clarify what you would like to solve or find out regarding this equation? Are you looking for a specific value for \\( a \\), \\( b \\), \\( c \\), or \\( k \\)? Let me know how I can assist!",
+            "additional_kwargs": {},
+            "response_metadata": {},
+            "type": "ai",
+            "name": null,
+            "id": null,
+            "example": false,
+            "tool_calls": [],
+            "invalid_tool_calls": [],
+            "usage_metadata": null
+          },
+          {
+            "content": "what is abc= ?",
+            "additional_kwargs": {},
+            "response_metadata": {},
+            "type": "human",
+            "name": null,
+            "id": null,
+            "example": false
+          },
+          {
+            "content": "To express \\( abc \\) in terms of \\( k \\) from the equation \\( abc = kkk \\), we can rewrite it as:\n\n\\[\nabc = k \\cdot k \\cdot k = k^3\n\\]\n\nSo, \\( abc = k^3 \\). If you have any more questions or need further assistance, feel free to ask!",
+            "additional_kwargs": {},
+            "response_metadata": {},
+            "type": "ai",
+            "name": null,
+            "id": null,
+            "example": false,
+            "tool_calls": [],
+            "invalid_tool_calls": [],
+            "usage_metadata": null
+          }
+        ]
+      }
+    ]
   }
 }

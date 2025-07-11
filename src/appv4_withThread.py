@@ -544,5 +544,5 @@ def invoke(text:str,context: Optional[List] = None):
         l= app.invoke(State(messages=[SystemMsg,HumanMessage(content=text)]))
     else:
         l= app.invoke(State(messages=context["messages"]+[HumanMessage(content=text)],previous_messages=context["previous_messages"]))
-    #print(l["messages"][-1].content)
+        
     return l
